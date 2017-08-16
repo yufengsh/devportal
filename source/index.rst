@@ -1,0 +1,35 @@
+=================
+Citrix Cloud APIs
+=================
+
+**Welcome to the Citrix Cloud developer portal!**
+
+In this site you will find documentation for Citrix Cloud's APIs.  The documentation is
+organized into sections based on the various services found within Citrix Cloud.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Table of Contents
+
+   getting_started
+   global_apis
+.. xendesktop
+   xenmobile
+   sharefile
+   securebrowser
+   smarttools
+
+*Stay tuned for more content*
+
+Search
+======
+
+* :ref:`genindex`
+* :ref:`search`
+
+.. * :ref:`modindex`
+
+Comments
+========
+
+.. disqus::
