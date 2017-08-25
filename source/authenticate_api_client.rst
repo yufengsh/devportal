@@ -89,6 +89,46 @@ Seconds until the bearer token expires.  Bearer tokens obtained using an API cli
 cannot be refreshed; if the bearer token expires, request a new one using this API
 a second time.
 
+Powershell Example
+==================
+
+Step 1:
+~~~~~~~
+Define a method to get a bearer token given a client id and secret.
+
+.. code-block:: powershell
+
+  function GetBearerToken {
+    param (
+      [Parameter(Mandatory=$true)]
+      [string] $clientId,
+      [Parameter(Mandatory=$true)]
+      [string] $clientSecret
+    )
+
+    $postHeaders = @{"Content-Type"="application/json"}
+    $body = @{
+      "ClientId"=$clientId;
+      "ClientSecret"=$clientSecret
+    }
+    $trustUrl = "https://trust.citrixworkspacesapi.net/root/tokens/clients"
+
+    $response = Invoke-RestMethod -Uri $trustUrl -Method POST -Body (ConvertTo-Json $body) -Headers $postHeaders
+    $bearerToken = $response.token
+
+    return $bearerToken;
+  }
+
+Step 2:
+~~~~~~~
+In your script, call the newly defined method. 
+
+.. code-block:: powershell
+
+  $clientId = "b959ac67-..." #Replace with your clientId
+  $clientSecret = "D8..."    #Replace with your clientSecret
+
+  $bearerToken = GetBearerToken $clientId $clientSecret
 
 C# Example
 ==========
