@@ -5,7 +5,7 @@ This *REST API* updates an existing catalog with a new master image.
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId`` and ``bearer token``.
+* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * The master image must already be added to the customers account. See `how to add a master image <how_to_add_a_master_image.html>`_ for steps to add a new master image.
 * The catalog must be in ``InputRequired`` or ``Active`` state.
 * If you do not have the ``catalogId``, see `how to get details of all the catalogs <how_to_get_details_of_all_the_catalogs.html>`_ to get the details of all your catalogs.
@@ -109,9 +109,10 @@ This example illustrates how to update a catalog with a new master image using P
   }
   
   $customerId = "exampleCust" #Replace with your customerId
+  $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $catalogId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your catalog ID
-  $response = UpdateCatalogImage $customerId $bearerToken $catalogId (ConvertTo-Json $body)
+  $response = UpdateCatalogImage $customerId $siteId $bearerToken $catalogId (ConvertTo-Json $body)
   
 C# Example
 ==========

@@ -6,7 +6,7 @@ This *REST API* lists the details of all master images that were added to a cust
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId`` and ``bearer token``.
+* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * Use the API in this document to get all master images.
 
 REST Example
@@ -130,8 +130,9 @@ This example illustrates how to list all master images that were added to a cust
   }
   
   $customerId = "exampleCust" #Replace with your customerId
+  $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
-  $response = GetAllMasterImages $customerId $bearerToken
+  $response = GetAllMasterImages $customerId $siteId $bearerToken
   
 C# Example
 ==========

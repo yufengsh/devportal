@@ -6,7 +6,7 @@ This *REST API* gets the details of all the catalogs in a customer's account.
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId`` and ``bearer token``.
+* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * Use the API in this document to get details of all catalogs in an account.
 
 REST Example
@@ -157,8 +157,9 @@ This example illustrates how to get the details of all catalogs that were create
   }
   
   $customerId = "exampleCust" #Replace with your customerId
+  $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
-  $response = GetAllCatalogs $customerId $bearerToken
+  $response = GetAllCatalogs $customerId $siteId $bearerToken
   
 C# Example
 ==========

@@ -6,7 +6,7 @@ This *REST API* gets the details of a master image that was previously added to 
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId`` and ``bearer token``.
+* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * If you do not have the ``imageId``, see `how to get all master images <how_to_get_all_master_images.html>`_ to get the image id of all your posted images.
 * Use the API in this document to get the master image.
 
@@ -81,6 +81,14 @@ Property Name        | Description
 ==================   ================================================================================
 Catalogs             | The list of catalogs using this master image.
 Applications         | The list of start menu applications on the master image.
+                     | *Id* - The ID of the application. Use this ID when publishing an application.
+                     | *Name* - The name of the application on the master image. Use this name when
+                     |          publishing an application.
+                     | *ApplicationPath* - The application path on the master image. Use this path
+                     |                     when publishing an application.
+                     | *Compressedb64Icon* - The compressed application icon in Base64 format. This
+                     |                       icon is for display purpose only. Do not use this when
+                     |                       publishing an application.
 Id                   | The ID of the master image.
 Name                 | The friendly name if the master image.
 State                | The current state of the master image. A state of ``Ready`` indicates that the 
@@ -125,9 +133,10 @@ This example illustrates how to get a master image that was added to a customer'
   }
   
   $customerId = "exampleCust" #Replace with your customerId
+  $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $imageId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your master image ID
-  $response = GetMasterImage $customerId $bearerToken $imageId
+  $response = GetMasterImage $customerId $siteId $bearerToken $imageId
 
 C# Example
 ==========
