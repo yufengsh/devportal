@@ -6,7 +6,7 @@ This *REST API* gets the details of a catalog that was created in customer's acc
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId`` and ``bearer token``.
+* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * If you do not have the ``catalogId``, see `how to get details of all the catalogs <how_to_get_details_of_all_the_catalogs.html>`_ to get the details of all your catalogs.
 * Use the API in this document to get catalog details.
 
@@ -132,9 +132,10 @@ This example illustrates how to get a details for a catalog that was created in 
   }
   
   $customerId = "exampleCust" #Replace with your customerId
+  $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $catalogId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your catalog ID
-  $response = GetCatalog $customerId $bearerToken $catalogId
+  $response = GetCatalog $customerId $siteId $bearerToken $catalogId
   
 C# Example
 ==========

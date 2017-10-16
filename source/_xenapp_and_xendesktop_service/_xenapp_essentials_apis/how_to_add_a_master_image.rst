@@ -6,7 +6,7 @@ This *REST API* adds a new master image to a customer's account.
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId`` and ``bearer token``.
+* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * Use the API listed below to add a master image.
 * Check the verification status of the master image using the steps detailed in `how to get a master image <how_to_get_a_master_image.html>`_.
 * A state of ``Enumerating`` indicates that the image processing has begun. Keep monitoring until the status changes to either ``Ready`` or ``Failed``.
@@ -105,8 +105,9 @@ This example illustrates how to add a new master image to a customer's account u
   }
   
   $customerId = "exampleCust" #Replace with your customerId
+  $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
-  $response = AddMasterImage $customerId $bearerToken (ConvertTo-Json $body)
+  $response = AddMasterImage $customerId $siteId $bearerToken (ConvertTo-Json $body)
 
 C# Example
 ==========
