@@ -40,6 +40,7 @@ Response
         "Id": "522e06cf-974e-4a7a-bd26-06faa010288f",
         "Name": "Calculator",
         "ApplicationPath": "C:\\Windows\\system32\\calc.exe",
+        "WorkingDirectory": "%windir%\\system32",
         "Compressedb64Icon": "iVBORw0KGgoAAA..."
       },
       {
@@ -67,6 +68,9 @@ Id                   | The ID of the application. This is the ID to pass to any 
 Name                 | The name of the application. This name matches the start menu 
                      | discovered applications on a master image.
 ApplicationPath      | The path of the application executable on the master image.
+WorkingDirectory     | By default, this path is the same as the path in the ApplicationPath
+                     | field. To run the application from a different directory, add an 
+                     | absolute path to this field.
 Compressedb64Icon    | The compressed application icon in Base64 format. This is for
                      | displaying the icon in the UI.
 CommandLineParams    | The command line parameters for the app at startup.

@@ -47,7 +47,9 @@ Response
         "Id": "fc9d89b5-9914-4367-b32a-2a48b1db40af",
         "Name": "Acrobat Reader DC",
         "ApplicationPath": "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe",
+        "WorkingDirectory": "%ProgramFiles(x86)%\\Adobe",
         "Compressedb64Icon": "..."
+        "CommandLineParams": "doc.pdf"
       }
 	],
     "Id": "55cab14f-efb7-4bd6-bd9c-ebe991c9d165",
@@ -86,9 +88,13 @@ Applications         | The list of start menu applications on the master image.
                      |          publishing an application.
                      | *ApplicationPath* - The application path on the master image. Use this path
                      |                     when publishing an application.
+                     | *WorkingDirectory* - By default, this path is the same as the path in the 
+                     |                      ApplicationPath field. To run the application from a 
+                     |                      different directory, add an absolute path to this field.
                      | *Compressedb64Icon* - The compressed application icon in Base64 format. This
                      |                       icon is for display purpose only. Do not use this when
                      |                       publishing an application.
+                     | *CommandLineParams* - The command line parameters for the app at startup.
 Id                   | The ID of the master image.
 Name                 | The friendly name if the master image.
 State                | The current state of the master image. A state of ``Ready`` indicates that the 
