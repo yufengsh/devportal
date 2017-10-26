@@ -28,6 +28,7 @@ Request
     "Name": "Google Chrome",
     "ApplicationPath": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
     "CommandLineParameters": "https://developer.cloud.com",
+    "WorkingDirectory": "%ProgramFiles(x86)%\\Google",
     "Base64Icon": "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAAAQA..."
   }
   
@@ -54,6 +55,9 @@ ApplicationPath         | [Required] The new full path of the application execut
                         | Set this to the original name if you do not wish to modify it.
 CommandLineParameters   | [Optional] The new command line parameters for the app at startup. If this 
                         | property is not specified, the original value will remain intact.
+WorkingDirectory        | By default, this path is the same as the path in the ApplicationPath
+                        | field. To run the application from a different directory, add an 
+                        | absolute path to this field.
 Base64Icon              | [Optional] The new base64 icon for the application. If this property is not
                         | specified, the original value will remain intact.
 ======================= ===================================================================================
@@ -98,6 +102,7 @@ This example illustrates how to update the details of an existing application fo
     "Name" = "Google Chrome";
     "ApplicationPath" = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
     "CommandLineParameters" = "https://developer.cloud.com";
+    "WorkingDirectory" = "%ProgramFiles(x86)%\Google";
     "Base64Icon"= "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAA..."
   }
   
@@ -128,6 +133,11 @@ This example illustrates how to update the details of an existing application fo
     /// </summary>
     [Required]
     public string ApplicationPath { get; set; }
+
+    /// <summary>
+    /// Working directory of the app at launch
+    /// </summary>
+    public string WorkingDirectory { get; set; }
 
     /// <summary>
     /// Command line paramters to pass to the app when launching

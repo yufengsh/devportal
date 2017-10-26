@@ -32,6 +32,7 @@ Request
         "IsStartMenuDiscovered": true,
         "Name": "Acrobat Reader DC",
         "Path": "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe",
+        "WorkingDirectory": "%ProgramFiles(x86)%\\Adobe"
       },
       {
         "Id": "e8b97101-5484-40da-a863-7540f2efb4ad";
@@ -66,6 +67,7 @@ Response
         "Id": "bfca73a0-c30a-4db5-af55-b1cc02f9b0f2",
         "Name": "Acrobat Reader DC",
         "ApplicationPath": "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe",
+        "WorkingDirectory": "%ProgramFiles(x86)%\\Adobe",
         "Compressedb64Icon": "iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR..."
       },
       {
@@ -102,6 +104,8 @@ Name                    | The name of the application. See `how to get a master 
                         | to get the application name. Set this to the name of you application for 
                         | publishing custom (Publish by path) application.
 Path                    | The full path of the application executable on the master image.
+WorkingDirectory        | By default, this path is the same as the path in the Path field. To run the 
+                        | application from a different directory, add an absolute path to this field.
 CommandLineParameters   | [Optional] The command line parameters for the app at startup.
 Base64Icon              | [Optional] Leave this property empty when publishing a start menu application 
                         | since we already have the icon. Set this to the raw application icon in base64
@@ -150,7 +154,8 @@ This example illustrates how to publish applications to a catalog in a customer'
         "Id"= "d288f8ee-538e-41ae-b79e-bd562baff78b";
         "IsStartMenuDiscovered" = true;
         "Name"= "Acrobat Reader DC";
-        "Path"= "C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe"        
+        "Path"= "C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe";
+        "WorkingDirectory"= "%ProgramFiles(x86)%\Adobe"
       },
       @{        
         "Id"= "e8b97101-5484-40da-a863-7540f2efb4ad";
