@@ -19,6 +19,7 @@ The complete set of available APIs can be viewed and tried out at `Catalog Servi
    how_to_delete_a_master_image
    how_to_get_catalog_information
    how_to_get_details_of_all_the_catalogs
+   how_to_deploy_a_catalog
    how_to_update_a_catalog_image
    how_to_get_all_catalog_applications
    how_to_publish_catalog_applications

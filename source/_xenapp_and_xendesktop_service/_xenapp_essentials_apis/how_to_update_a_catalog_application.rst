@@ -55,7 +55,7 @@ ApplicationPath         | [Required] The new full path of the application execut
                         | Set this to the original name if you do not wish to modify it.
 CommandLineParameters   | [Optional] The new command line parameters for the app at startup. If this 
                         | property is not specified, the original value will remain intact.
-WorkingDirectory        | By default, this path is the same as the path in the ApplicationPath
+WorkingDirectory        | [Optional] By default, this path is the same as the path in the ApplicationPath
                         | field. To run the application from a different directory, add an 
                         | absolute path to this field.
 Base64Icon              | [Optional] The new base64 icon for the application. If this property is not
