@@ -48,7 +48,7 @@ The response is a JSON with a list of all your sites. Currently all customers ha
 ==================   ================================================================================
 Property Name        | Description
 ==================   ================================================================================
-Id                   | The site ID. This is the ID that needs to be passed in all the requests urls.
+Id                   | The site ID. This is the ID that needs to be passed in all the requests URLs.
 DisplayName          | The display name of the site.
 ==================   ================================================================================
 
@@ -68,14 +68,14 @@ This example illustrates how to get a customer's site identifiers using PowerShe
     )
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/sites", $customerId)
     $headers = @{"Accept"="application/json";
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $customerId = "customer1" #Replace with your customerId
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = GetSites $customerId $bearerToken
 
 C# Example
@@ -94,7 +94,7 @@ This example illustrates how to get a customer's site identifiers using C#.
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var response = await client.GetAsync(requestUri);
 

@@ -45,10 +45,10 @@ Response
   X-Cws-TransactionId: 6c3db4d6-125f-4ea3-b938-882bc5dc3caf
 
   {
-    "principal": "t__.k__@citrix.com",
+    "principal": "john.down@citrix.com",
     "subject": "16..",
-    "token": "ey..",
-    "openIdToken": "ey..",
+    "token": "ey1..",
+    "openIdToken": "ey1..",
     "expiresIn": 3600
   }
 

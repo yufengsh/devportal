@@ -19,7 +19,7 @@ Request
 ~~~~~~~
 ::
 
-  DELETE https://catalogs.apps.cloud.com/{customerid}/{siteId}/images/{imageId} HTTP/1.1
+  DELETE https://catalogs.apps.cloud.com/{customerId}/{siteId}/images/{imageId} HTTP/1.1
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
@@ -67,15 +67,15 @@ This example illustrates how to delete a master image from a customer's account 
     )
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/images/{2}", $customerId, $siteId, $imageId)
     $headers = @{"Accept"="application/json";
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method DELETE -Headers $headers
     return $response
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $imageId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your master image ID
   $response = DeleteMasterImage $customerId $siteId $bearerToken $imageId
   
@@ -97,7 +97,7 @@ This example illustrates how to delete a master image from a customer's account 
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var response = await client.DeleteAsync(requestUri);
 

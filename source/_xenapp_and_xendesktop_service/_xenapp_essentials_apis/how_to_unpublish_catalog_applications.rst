@@ -20,7 +20,7 @@ Request
 ~~~~~~~
 ::
 
-  DELETE https://catalogs.apps.cloud.com/{customerid}/{siteId}/catalogs/{catalogId}/apps?appIds={appId}&appIds={appId} HTTP/1.1
+  DELETE https://catalogs.apps.cloud.com/{customerId}/{siteId}/catalogs/{catalogId}/apps?appIds={appId}&appIds={appId} HTTP/1.1
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
@@ -77,15 +77,15 @@ This example illustrates how to un-publish applications from a catalog in a cust
   
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/{2}/apps?{3}", $customerId, $siteId, $catalogId, $query.ToString())
     $headers = @{"Accept"="application/json";
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method DELETE -Headers $headers
     return $response
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $catalogId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your catalog ID
   $appIds = @("50af6370-fff1-4fc9-b082-a33761fd2f20", "37ee73e3-8dc1-4f8d-8924-cef5724e3305", "804af829-5701-48ef-b4e4-f91d2012f816") #Replace with your app ids
   $response = UnPublishCatalogApplications $customerId $siteId $bearerToken $catalogId $appIds
@@ -115,7 +115,7 @@ This example illustrates how to un-publish applications from a catalog in a cust
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var response = await client.DeleteAsync(requestUri);
 
