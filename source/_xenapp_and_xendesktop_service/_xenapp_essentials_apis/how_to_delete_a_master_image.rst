@@ -47,10 +47,10 @@ Interpreting the response
 
 The response is either "True" or "False" indicating either success or failure respectively.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to delete a master image from a customer's account using Powershell.
+This example illustrates how to delete a master image from a customer's account using PowerShell.
 
 .. code-block:: powershell
 

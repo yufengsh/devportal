@@ -52,10 +52,10 @@ Id                   | The site ID. This is the ID that needs to be passed in al
 DisplayName          | The display name of the site.
 ==================   ================================================================================
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to get a customer's site identifiers using Powershell.
+This example illustrates how to get a customer's site identifiers using PowerShell.
 
 .. code-block:: powershell
 

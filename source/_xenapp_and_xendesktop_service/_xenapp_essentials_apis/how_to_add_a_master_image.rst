@@ -68,10 +68,10 @@ Interpreting the response
 
 The response is a GUID string that represents the ``imageId``. You will need this ``imageId`` to query the status of the image.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to add a new master image to a customer's account using Powershell.
+This example illustrates how to add a new master image to a customer's account using PowerShell.
 
 .. code-block:: powershell
 

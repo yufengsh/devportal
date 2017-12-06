@@ -132,7 +132,7 @@ CatalogLimit             | The number of catalogs the customer is allowed to hav
                          | account.
 ======================== ========================================================================
 
-Powershell Example
+PowerShell Example
 ==================
 
 This example illustrates how to get the details of all catalogs that were created in a customer’s account using PowerShell.

@@ -105,7 +105,7 @@ TaskCompletionPercentage | The current percentage completion of the catalog crea
 LastModifiedTime         | The list time the catalog was modified.
 ======================== ========================================================================
 
-Powershell Example
+PowerShell Example
 ==================
 
 This example illustrates how to get a details for a catalog that was created in a customer’s account using PowerShell.

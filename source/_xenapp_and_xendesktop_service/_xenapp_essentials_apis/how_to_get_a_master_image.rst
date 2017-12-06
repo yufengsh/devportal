@@ -112,10 +112,10 @@ LinkedCatalogs       | The number of catalogs using this image. This will be 0 f
                      | has just been added and has never been used by a catalog.
 ==================   ================================================================================
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to get a master image that was added to a customer's account using Powershell.
+This example illustrates how to get a master image that was added to a customer's account using PowerShell.
 
 .. code-block:: powershell
 

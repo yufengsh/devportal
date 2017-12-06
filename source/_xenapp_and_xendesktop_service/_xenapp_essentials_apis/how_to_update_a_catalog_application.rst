@@ -67,10 +67,10 @@ Interpreting the response
 
 The response is either "True" or "False" indicating either success or failure respectively.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to update the details of an existing application for a catalog using Powershell.
+This example illustrates how to update the details of an existing application for a catalog using PowerShell.
 
 .. code-block:: powershell
 

@@ -119,10 +119,10 @@ Interpreting the response
 
 The request is a JSON with a list of all the applications that were successfully published as part of this request.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to publish applications to a catalog in a customer's account using Powershell.
+This example illustrates how to publish applications to a catalog in a customer's account using PowerShell.
 
 .. code-block:: powershell
 

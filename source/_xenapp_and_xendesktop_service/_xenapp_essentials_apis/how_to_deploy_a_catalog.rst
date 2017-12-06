@@ -225,10 +225,10 @@ Interpreting the response
 
 The response is a GUID string that represents the ``catalogId``. You will need this ``catalogId`` to query the deployment status of the catalog using `how to get catalog information <how_to_get_catalog_information.html>`_.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to deploy a catalog to a customer's account using Powershell.
+This example illustrates how to deploy a catalog to a customer's account using PowerShell.
 
 .. code-block:: powershell
 

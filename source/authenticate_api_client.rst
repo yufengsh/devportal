@@ -89,7 +89,7 @@ Seconds until the bearer token expires.  Bearer tokens obtained using an API cli
 cannot be refreshed; if the bearer token expires, request a new one using this API
 a second time.
 
-Powershell Example
+PowerShell Example
 ==================
 
 Step 1:

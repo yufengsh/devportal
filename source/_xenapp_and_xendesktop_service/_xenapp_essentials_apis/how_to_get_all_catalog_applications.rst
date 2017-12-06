@@ -76,10 +76,10 @@ Compressedb64Icon    | The compressed application icon in Base64 format. This is
 CommandLineParams    | The command line parameters for the app at startup.
 ==================== ======================================================================
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to get the details of all applications published for a catalog in a customer’s account using Powershell.
+This example illustrates how to get the details of all applications published for a catalog in a customer’s account using PowerShell.
 
 .. code-block:: powershell
 

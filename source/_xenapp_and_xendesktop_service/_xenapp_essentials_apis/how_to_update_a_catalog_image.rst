@@ -73,10 +73,10 @@ Interpreting the response
 
 The response is a GUID string that represents the ``catalogId`` of the catalog that was just updated. You will need this ``catalogId`` to query the details of the catalog.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to update a catalog with a new master image using Powershell.
+This example illustrates how to update a catalog with a new master image using PowerShell.
 
 .. code-block:: powershell
 

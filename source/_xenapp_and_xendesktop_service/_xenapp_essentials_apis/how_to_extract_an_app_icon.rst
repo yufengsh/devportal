@@ -55,10 +55,10 @@ Interpreting the response
 
 The response is a string in base64 format containing raw icon data. This is the icon string that needs to be passed to the API when publishing a custom (Publish by path) application or updating a published application.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to get icon data in base64 string fromat from a file using Powershell.
+This example illustrates how to get icon data in base64 string fromat from a file using PowerShell.
 
 .. code-block:: powershell
 
