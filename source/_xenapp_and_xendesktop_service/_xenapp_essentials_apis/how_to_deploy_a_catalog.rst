@@ -91,7 +91,7 @@ Response
 Interpreting the request
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The request JSON body contains all the fields needed to deploy a new catalog. On the XenApp Essentials UI, these fields are split into seven different steps which are described below.
+The request JSON body contains all the fields needed to deploy a new catalog. On the XenApp Essentials UI, these fields are split into seven different steps that are described below.
 
 Step 1: Pick a Name (AddCatalog)
 
@@ -121,7 +121,7 @@ Step 3: Join local domain (AddCatalogDomain)
 =====================  ==========================================================================
 Property Name          | Description
 =====================  ==========================================================================
-DomainName             | [Required] The fuly qualified domain name to be used by the catalog.
+DomainName             | [Required] The fully qualified domain name to be used by the catalog.
                        | The connector and VDA machines will be joined to this domain.
 DomainOu               | [Optional] The Active Directory OU. The VDA machine accounts will be
                        | created in this OU.
@@ -181,11 +181,11 @@ Property Name       | Description
 ==================  =============================================================================
 MaxUsers            | [Optional] Internal use only. Do not set it.
 MinInstances        | [Required] The minimum number of VDA instances running at all times.
-MaxInstances        | [Required] The max number of VDA instances to provision for the catalog.
+MaxInstances        | [Required] The maximum number of VDA instances to provision for the catalog.
 Weekdays            | [Optional] Required only if setting a peak schedule. Set true for days you
                     | want the peak schedule to be enabled. eg. {monday: true, tuesday: true, 
                     | wednesday: true, thursday: true, friday: true, saturday: false, sunday: false}
-PeakStartTime       | [Optional] Required only if setting a peak schedule. The houe of the day
+PeakStartTime       | [Optional] Required only if setting a peak schedule. The hour of the day
                     | when peak schedule begins. Any integer number between 0 and 23.
 PeakEndTime         | [Optional] Required only if setting a peak schedule. The houe of the day
                     | when peak schedule ends. Any integer number between 0 and 23.
@@ -339,7 +339,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       public string AzureResourceGroup { get; set; }
 
       /// <summary>
-      /// Name of the VNet all machines will be connected to
+      /// Name of the VNET all machines will be connected to
       /// </summary>
       [Required]            
       [StringLength(64, MinimumLength = 2)]
@@ -424,7 +424,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       public CatalogScaleSettingsModel ScaleSettings { get; set; }
 
       /// <summary>
-      /// Idle timeout for session in the catalog (in mins)
+      /// Idle timeout for session in the catalog (in minutes)
       /// </summary>
       public int SessionTimeout { get; set; }
 
@@ -461,12 +461,12 @@ This example illustrates how to deploy a catalog to a customer's account using C
   public class CatalogScaleSettingsModel
   {            
       /// <summary>
-      /// Min number of active vms for the catalog
+      /// Minimum number of active VMs for the catalog
       /// </summary>
       public int MinInstances { get; set; }
 
       /// <summary>
-      /// Number of VMs that will be provisioned for  this catalog
+      /// Number of VMs that will be provisioned for this catalog
       /// </summary>
       public int MaxInstances { get; set; }
 
@@ -491,7 +491,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       public string PeakTimeZone { get; set; }
       
       /// <summary>
-      /// Min number of insances that should be running durring peak hours
+      /// Minimum number of instances that should be running during peak hours
       /// </summary>
       public int PeakMinInstances { get; set; }
   }
