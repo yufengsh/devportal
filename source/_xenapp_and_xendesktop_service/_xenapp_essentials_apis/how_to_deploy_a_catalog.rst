@@ -61,7 +61,7 @@ Request
       "ScaleSettings": {
         "MinInstances": 1,
         "MaxInstances": 2,
-        "Weekdays": {"monday": true, "tuesday": true, "wednesday": true, "thursday": true, "friday": true, "saturday": false, "sunday": false},
+        "Weekdays": {"Monday": true, "Tuesday": true, "Wednesday": true, "Thursday": true, "Friday": true, "Saturday": false, "Sunday": false},
         "PeakStartTime": 9,
         "PeakEndTime": 17,
         "PeakTimeZone": "Eastern Standard Time",
@@ -183,8 +183,8 @@ MaxUsers            | [Optional] Internal use only. Do not set it.
 MinInstances        | [Required] The minimum number of VDA instances running at all times.
 MaxInstances        | [Required] The maximum number of VDA instances to provision for the catalog.
 Weekdays            | [Optional] Required only if setting a peak schedule. Set true for days you
-                    | want the peak schedule to be enabled. eg. {monday: true, tuesday: true, 
-                    | wednesday: true, thursday: true, friday: true, saturday: false, sunday: false}
+                    | want the peak schedule to be enabled. eg. {Monday: true, Tuesday: true, 
+                    | Wednesday: true, Thursday: true, Friday: true, Saturday: false, Sunday: false}
 PeakStartTime       | [Optional] Required only if setting a peak schedule. The hour of the day
                     | when peak schedule begins. Any integer number between 0 and 23.
 PeakEndTime         | [Optional] Required only if setting a peak schedule. The houe of the day
@@ -286,7 +286,7 @@ This example illustrates how to deploy a catalog to a customer's account using P
       "ScaleSettings" = @{
         "MinInstances" = "1";
         "MaxInstances" = "2";      
-        "Weekdays" = @{"monday" = $true; "tuesday" = $true; "wednesday" = $true; "thursday" = $true; "friday" = $true; "saturday" = $false; "sunday" = $false};
+        "Weekdays" = @{"Monday" = $true; "Tuesday" = $true; "Wednesday" = $true; "Thursday" = $true; "Friday" = $true; "Saturday" = $false; "Sunday" = $false};
         "PeakStartTime" = "9";
         "PeakEndTime" = "17";
         "PeakTimeZone" = "Eastern Standard Time";
