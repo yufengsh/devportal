@@ -74,7 +74,7 @@ Response
         "SubscriptionName": "Sales Azure Subscription",
         "ResourceGroup": "SalesRG",
         "Region": "eastus",
-        "VNetName": "Salesvnet",
+        "VNetName": "SalesVnet",
         "Subnet": "default",
         "DomainName": "customer.com",
         "DomainServiceAccount": "user",
@@ -108,7 +108,7 @@ Id                       | The ID of the catalog. This is the ID to pass to any 
 Name                     | The name of the catalog.
 State                    | The current state of the catalog. A state of ``Input Required`` or 
                          | ``Active`` indicates that the catalog deployment is successful.
-SubState                 | The substate of the catalog. This gives more information about the 
+SubState                 | The sub-state of the catalog. This gives more information about the 
                          | current state of the catalog if it is in ``Processing`` state.
 Warnings                 | Any warnings associated with the catalog.
 StatusMessage            | If the catalog is not in ``InputRequired`` or ``Active`` state, this 
@@ -132,7 +132,7 @@ CatalogLimit             | The number of catalogs the customer is allowed to hav
                          | account.
 ======================== ========================================================================
 
-Powershell Example
+PowerShell Example
 ==================
 
 This example illustrates how to get the details of all catalogs that were created in a customer’s account using PowerShell.
@@ -150,15 +150,15 @@ This example illustrates how to get the details of all catalogs that were create
     )
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs", $customerId, $siteId)
     $headers = @{"Accept"="application/json";
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = GetAllCatalogs $customerId $siteId $bearerToken
   
 C# Example
@@ -178,7 +178,7 @@ This example illustrates how to get the details of all catalogs that were create
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var response = await client.GetAsync(requestUri);
 

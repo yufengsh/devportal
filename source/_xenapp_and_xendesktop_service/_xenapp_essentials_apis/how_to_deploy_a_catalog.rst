@@ -22,7 +22,7 @@ Request
 ~~~~~~~
 ::
 
-  POST https://catalogs.apps.cloud.com/{customerid}/{siteId}/catalogs/deploy HTTP/1.1
+  POST https://catalogs.apps.cloud.com/{customerId}/{siteId}/catalogs/deploy HTTP/1.1
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
@@ -40,7 +40,7 @@ Request
     "AddCatalogDomain": {
       "DomainName": "customer.local",
       "DomainOu": "",
-      "ServiceAccountName": "admin"
+      "ServiceAccountName": "admin1"
     },
     "AddCatalogResourceLocation": {
       "Name": "Finance Resource Location",
@@ -72,7 +72,7 @@ Request
     },
     "DeploySecrets": {
       "ClientId": "b3175618-...",
-      "ClientSecret": "iEnl...",
+      "ClientSecret": "iEnl1...",
       "ServiceAccountPassword": "..."
     }
   }
@@ -126,7 +126,7 @@ DomainName             | [Required] The fully qualified domain name to be used b
 DomainOu               | [Optional] The Active Directory OU. The VDA machine accounts will be
                        | created in this OU.
 ServiceAccountName     | [Required] The domain service account name in UPN format. Ensure that
-                       | this account has premissions to join machines to the domain.
+                       | this account has permissions to join machines to the domain.
 =====================  ==========================================================================
 
 Step 4: Connect to a resource location (AddCatalogResourceLocation)
@@ -150,7 +150,7 @@ Step 5: Choose master image (AddCatalogImage)
 Property Name          | Description
 =====================  ==========================================================================
 TemplateId             | [Required] The ID of the master image you want to use for the catalog. 
-                       | See `how to get all master images <how_to_get_all_master_images.html>`_ to get the ``imageid`` of all your posted images.
+                       | See `how to get all master images <how_to_get_all_master_images.html>`_ to get the ``imageId`` of all your posted images.
 CitrixPrepared         | [Optional] This should be set to false for a customer provided image.  
                        | This should be set to true if you are creating the catalog with a  
                        | Citrix Prepared image. Default value if false.
@@ -171,7 +171,7 @@ UseAzureHUB           | [Optional] Defaults to false. True if you want to use ex
 MaxUsersPerVM         | [Required] The max number of user sessions on each VDA machine.
 InstanceTypeId        | [Optional] Internal use only. Do not set it.
 InstanceName          | [Required] Azure virtual machine size to provision for the VDA.
-                      | See `virtual machine size <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes>`_ for all avaliable azure VM sizes.
+                      | See `virtual machine size <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes>`_ for all available azure VM sizes.
 ====================  ===========================================================================
 
 Property: ScaleSettings
@@ -183,11 +183,11 @@ MaxUsers            | [Optional] Internal use only. Do not set it.
 MinInstances        | [Required] The minimum number of VDA instances running at all times.
 MaxInstances        | [Required] The maximum number of VDA instances to provision for the catalog.
 Weekdays            | [Optional] Required only if setting a peak schedule. Set true for days you
-                    | want the peak schedule to be enabled. eg. {Monday: true, Tuesday: true, 
+                    | want the peak schedule to be enabled. e.g. {Monday: true, Tuesday: true, 
                     | Wednesday: true, Thursday: true, Friday: true, Saturday: false, Sunday: false}
 PeakStartTime       | [Optional] Required only if setting a peak schedule. The hour of the day
                     | when peak schedule begins. Any integer number between 0 and 23.
-PeakEndTime         | [Optional] Required only if setting a peak schedule. The houe of the day
+PeakEndTime         | [Optional] Required only if setting a peak schedule. The hour of the day
                     | when peak schedule ends. Any integer number between 0 and 23.
 PeakTimeZone        | [Optional] Required only if setting a peak schedule. The timezone name for 
                     | the peak schedule. See `timezone names <https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx>`_ for a list of valid time zones.
@@ -225,10 +225,10 @@ Interpreting the response
 
 The response is a GUID string that represents the ``catalogId``. You will need this ``catalogId`` to query the deployment status of the catalog using `how to get catalog information <how_to_get_catalog_information.html>`_.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to deploy a catalog to a customer's account using Powershell.
+This example illustrates how to deploy a catalog to a customer's account using PowerShell.
 
 .. code-block:: powershell
 
@@ -246,7 +246,7 @@ This example illustrates how to deploy a catalog to a customer's account using P
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/deploy", $customerId, $siteId)
     $headers = @{"Accept"="application/json";
                  "Content-Type"="application/json"
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method POST -Headers $headers -Body $jsonBody
     return $response
@@ -265,7 +265,7 @@ This example illustrates how to deploy a catalog to a customer's account using P
     "AddCatalogDomain" = @{    
       "DomainName" = "customer.local";
       "DomainOu" = "";
-      "ServiceAccountName" = "admin"
+      "ServiceAccountName" = "admin1"
     }
     "AddCatalogResourceLocation" = @{
       "Name" = "Finance Resource Location";
@@ -296,14 +296,14 @@ This example illustrates how to deploy a catalog to a customer's account using P
     }
     "DeploySecrets" = @{
       "ClientId" = "b3175618-...";
-      "ClientSecret" = "iEnl...";
+      "ClientSecret" = "iEnl1...";
       "ServiceAccountPassword" = "..."
     }
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = DeployCatalog $customerId $siteId $bearerToken (ConvertTo-Json -Depth 3 $body)
 
 C# Example
@@ -385,7 +385,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       public string Name { get; set; }
 
       /// <summary>
-      /// Name of the resource location where to provision the connector vdas
+      /// Name of the resource location where to provision the connector VDAs
       /// </summary>            
       [StringLength(64, MinimumLength = 1)]
       [Required]
@@ -499,13 +499,13 @@ This example illustrates how to deploy a catalog to a customer's account using C
   public class DeploySecretsModel
   {
       /// <summary>
-      /// The client id that has admin permissions to Citrix Cloud
+      /// The client id that has administrators permissions to Citrix Cloud
       /// </summary>
       [Required]
       public string ClientId { get; set; }
 
       /// <summary>
-      /// The client secret that has admin permissions to Citrix cloud
+      /// The client secret that has administrators permissions to Citrix cloud
       /// </summary>
       [Required]
       public string ClientSecret { get; set; }
@@ -567,7 +567,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var jsonBody = JsonConvert.SerializeObject(model, new JsonSerializerSettings
           {

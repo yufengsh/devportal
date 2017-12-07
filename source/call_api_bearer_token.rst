@@ -3,9 +3,9 @@ Call an API using a Citrix Cloud bearer token
 =============================================
 
 Use the ``token`` property returned from the authentication API in the request
-Authorization header, prefixed by ``CWSAuth Bearer=`` like this:
+Authorization header, prefixed by ``CwsAuth Bearer=`` like this:
 
-``Authorization: CWSAuth Bearer=ey..``
+``Authorization: CwsAuth Bearer=ey1..``
 
 
 Response status codes
@@ -54,7 +54,7 @@ Request
 
   GET https://registry.citrixworkspacesapi.net/acme/resourcelocations HTTP/1.1
   Accept: application/json
-  Authorization: CWSAuth Bearer=ey..
+  Authorization: CwsAuth Bearer=ey1..
 
 Response
 ~~~~~~~~
@@ -65,7 +65,7 @@ Response
   Content-Length: 316
   Content-Type: application/json; charset=utf-8
   Date: Fri, 23 Dec 2016 22:24:00 GMT
-  X-Cws-TransactionId: bfc9b56c-0bcd-4cf1-9ea1-3da4d48a81c0
+  X-Cws-TransactionId: bfc9b56c-bcd0-4cf1-9ea1-3da4d48a81c0
 
   {
     "items": [
@@ -94,7 +94,7 @@ C# Example
 
 This example illustrates how to use a `bearer token <authenticate_api_client.html>`_
 to enumerate the customer's resource locations.  Note that the Authorization
-header scheme is "CWSAuth" and the value is "Bearer=\ *[bearerToken]*".
+header scheme is "CwsAuth" and the value is "Bearer=\ *[bearerToken]*".
 
 .. code-block:: csharp
 
@@ -103,7 +103,7 @@ header scheme is "CWSAuth" and the value is "Bearer=\ *[bearerToken]*".
       var client = new HttpClient();
       client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
       client.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
       var response = await client.GetAsync(
           "https://registry.citrixworkspacesapi.net/acme/resourcelocations"
