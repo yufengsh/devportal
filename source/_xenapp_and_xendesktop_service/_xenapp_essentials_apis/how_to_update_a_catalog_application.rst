@@ -69,10 +69,10 @@ Interpreting the response
 
 The response is either "True" or "False" indicating either success or failure respectively.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to update the details of an existing application for a catalog using Powershell.
+This example illustrates how to update the details of an existing application for a catalog using PowerShell.
 
 .. code-block:: powershell
 
@@ -94,7 +94,7 @@ This example illustrates how to update the details of an existing application fo
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/{2}/apps/{3}", $customerId, $siteId, $catalogId, $appId)
     $headers = @{"Accept"="application/json";
                  "Content-Type"="application/json"
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method PUT -Headers $headers -Body $jsonBody    
     return $response
@@ -109,9 +109,9 @@ This example illustrates how to update the details of an existing application fo
     "Base64Icon"= "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAA..."
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $catalogId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your catalog ID
   $appId = "f17bbe18-83a9-461c-a890-9c424596f0f3" #Replace with your app ID
   $response = UpdateCatalogApplication $customerId $siteId $bearerToken $catalogId $appId (ConvertTo-Json $body)
@@ -132,7 +132,7 @@ This example illustrates how to update the details of an existing application fo
     public string Name { get; set; }
 
     /// <summary>
-    /// Path of the application on the msater image
+    /// Path of the application on the master image
     /// </summary>
     [Required]
     public string ApplicationPath { get; set; }
@@ -172,7 +172,7 @@ This example illustrates how to update the details of an existing application fo
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var jsonBody = JsonConvert.SerializeObject(model, new JsonSerializerSettings
           {

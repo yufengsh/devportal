@@ -20,7 +20,7 @@ Request
 ~~~~~~~
 ::
 
-  POST https://catalogs.apps.cloud.com/{customerid}/{siteId}/catalogs/{catalogId}/apps HTTP/1.1
+  POST https://catalogs.apps.cloud.com/{customerId}/{siteId}/catalogs/{catalogId}/apps HTTP/1.1
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
@@ -60,7 +60,7 @@ Response
   HTTP/1.1 200 OK
   Content-Length: 13455
   Content-Type: application/json; charset=utf-8
-  Date: "Fri, 29 Sep 2017 20:21:09 GMT"
+  Date: "Fri, 29 September 2017 20:21:09 GMT"
   
   {
     "Applications": [
@@ -124,10 +124,10 @@ Interpreting the response
 
 The request is a JSON with a list of all the applications that were successfully published as part of this request.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to publish applications to a catalog in a customer's account using Powershell.
+This example illustrates how to publish applications to a catalog in a customer's account using PowerShell.
 
 .. code-block:: powershell
 
@@ -147,7 +147,7 @@ This example illustrates how to publish applications to a catalog in a customer'
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/{2}/apps", $customerId, $siteId, $catalogId)
     $headers = @{"Accept"="application/json";
                  "Content-Type"="application/json"
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method POST -Headers $headers -Body $jsonBody
     return $response
@@ -181,10 +181,10 @@ This example illustrates how to publish applications to a catalog in a customer'
     )
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $catalogId = "8d352ba7-1917-41c3-95e5-50f436be8968" #Replace with your catalog ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = PublishCatalogApplications $customerId $siteId $catalogId $bearerToken (ConvertTo-Json $body)
 
 C# Example
@@ -222,13 +222,13 @@ This example illustrates how to publish applications to a catalog in a customer'
     public string Name { get; set; }
 
     /// <summary>
-    /// Path of the application on the msater image
+    /// Path of the application on the master image
     /// </summary>
     [Required]
     public string Path { get; set; }
 
     /// <summary>
-    /// Command line paramters to pass to the app when launching
+    /// Command line parameters to pass to the app when launching
     /// </summary>
     public string CommandLineParameters { get; set; }
 
@@ -252,7 +252,7 @@ This example illustrates how to publish applications to a catalog in a customer'
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var jsonBody = JsonConvert.SerializeObject(model, new JsonSerializerSettings
           {

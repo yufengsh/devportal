@@ -105,7 +105,7 @@ LinkedCatalogs       | The number of catalogs using this image. This will be 0 f
                      | has just been added and has never been used by a catalog.
 ==================   ================================================================================
 
-Powershell Example
+PowerShell Example
 ==================
 
 This example illustrates how to list all master images that were added to a customer’s account using PowerShell.
@@ -123,15 +123,15 @@ This example illustrates how to list all master images that were added to a cust
     )
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/images?includeCitrixPrepared=false&includeCustomerPrepared=true", $customerId, $siteId)
     $headers = @{"Accept"="application/json";
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = GetAllMasterImages $customerId $siteId $bearerToken
   
 C# Example
@@ -151,7 +151,7 @@ This example illustrates how to list all master images that were added to a cust
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var response = await client.GetAsync(requestUri);
 
