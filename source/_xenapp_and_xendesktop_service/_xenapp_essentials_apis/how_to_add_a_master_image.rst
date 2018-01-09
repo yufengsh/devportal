@@ -24,7 +24,7 @@ Request
 ~~~~~~~
 ::
 
-  POST https://catalogs.apps.cloud.com/{customerid}/{siteId}/images HTTP/1.1
+  POST https://catalogs.apps.cloud.com/{customerId}/{siteId}/images HTTP/1.1
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
@@ -68,10 +68,10 @@ Interpreting the response
 
 The response is a GUID string that represents the ``imageId``. You will need this ``imageId`` to query the status of the image.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to add a new master image to a customer's account using Powershell.
+This example illustrates how to add a new master image to a customer's account using PowerShell.
 
 .. code-block:: powershell
 
@@ -89,7 +89,7 @@ This example illustrates how to add a new master image to a customer's account u
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/images", $customerId, $siteId)
     $headers = @{"Accept"="application/json";
                  "Content-Type"="application/json"
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method POST -Headers $headers -Body $jsonBody
     return $response
@@ -104,9 +104,9 @@ This example illustrates how to add a new master image to a customer's account u
     "VhdUrl" = "https://xaensfa5edge1gu4o1.blob.core.windows.net/vhds/XAEnsfa5-Findisk0.vhd"
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = AddMasterImage $customerId $siteId $bearerToken (ConvertTo-Json $body)
 
 C# Example
@@ -166,7 +166,7 @@ This example illustrates how to add a new master image to a customer's account u
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var jsonBody = JsonConvert.SerializeObject(model, new JsonSerializerSettings
           {

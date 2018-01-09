@@ -26,7 +26,7 @@ API client scope and permissions
 ================================
 
 API clients in Citrix Cloud are always tied to **one administrator** and
-**one customer**.  The API clients that you create are not visible to other admins
+**one customer**.  The API clients that you create are not visible to other administrators
 in your organization; and, if you have access to more than one customer, you will
 need to create API client(s) within each customer that you want to call APIs for.
 
@@ -40,7 +40,7 @@ If an administrator's access is reduced at any point, all API clients owned by t
 administrator also automatically have their access reduced as well.
 
 If an administrator's access is removed from a customer (i.e. they are removed from
-the list of admins within that customer), then all of the administrator's API clients
+the list of administrators within that customer), then all of the administrator's API clients
 with access to that customer are automatically deleted.
 
 .. important:: If an administrator account is federated from Azure Active Directory

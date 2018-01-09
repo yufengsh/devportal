@@ -13,7 +13,7 @@ Steps
 REST Example
 ============
 
-This example illustrates how to get icon data in base64 string fromat from a file using REST API.
+This example illustrates how to get icon data in base64 string format from a file using REST API.
 
 Request
 ~~~~~~~
@@ -46,7 +46,7 @@ Response
   HTTP/1.1 200 OK
   Content-Length: 63254
   Content-Type: application/json; charset=utf-8
-  Date: "Tue, 26 Sep 2017 21:24:11 GMT"
+  Date: "Tue, 26 September 2017 21:24:11 GMT"
   
   "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAAAQA..."
   
@@ -55,10 +55,10 @@ Interpreting the response
 
 The response is a string in base64 format containing raw icon data. This is the icon string that needs to be passed to the API when publishing a custom (Publish by path) application or updating a published application.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to get icon data in base64 string fromat from a file using Powershell.
+This example illustrates how to get icon data in base64 string format from a file using PowerShell.
 
 .. code-block:: powershell
 
@@ -76,15 +76,15 @@ This example illustrates how to get icon data in base64 string fromat from a fil
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/icons", $customerId, $siteId)
     $headers = @{"Accept"="application/json";
                  "Content-Type"="application/json"
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method POST -Headers $headers -Body $jsonBody
     return $response
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   
   $bytes = [System.IO.File]::ReadAllBytes("C:\temp\chrome.exe") #Replace with your file path
 
@@ -98,14 +98,14 @@ This example illustrates how to get icon data in base64 string fromat from a fil
 C# Example
 ==========
 
-This example illustrates how to get icon data in base64 string fromat from a file using C#.
+This example illustrates how to get icon data in base64 string format from a file using C#.
   
 .. code-block:: csharp
 
   public class ExtractIconModel
   {
       /// <summary>
-      /// The name of the file that comtains the image. This is only used for logging purpose. This can be set to any string.
+      /// The name of the file that contains the image. This is only used for logging purpose. This can be set to any string.
       /// </summary>
       public string FileName { get; set; }
       
@@ -126,7 +126,7 @@ This example illustrates how to get icon data in base64 string fromat from a fil
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var jsonBody = JsonConvert.SerializeObject(model, new JsonSerializerSettings
           {

@@ -79,7 +79,7 @@ Response
     "externalId": null
   }
 
-The start (*) in the destination admin field indicates the notification will be
+The start (*) in the destination administrators field indicates the notification will be
 sent to all administrators on the account.
 
 The notification can be seen now on the Citrix Cloud console:

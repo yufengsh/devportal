@@ -73,10 +73,10 @@ Interpreting the response
 
 The response is a GUID string that represents the ``catalogId`` of the catalog that was just updated. You will need this ``catalogId`` to query the details of the catalog.
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to update a catalog with a new master image using Powershell.
+This example illustrates how to update a catalog with a new master image using PowerShell.
 
 .. code-block:: powershell
 
@@ -93,10 +93,10 @@ This example illustrates how to update a catalog with a new master image using P
       [Parameter(Mandatory=$true)]
       [string] $jsonBody
     )
-    $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/{2}/updateimage", $customerId, $siteId, $catalogId)
+    $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/{2}/updateImage", $customerId, $siteId, $catalogId)
     $headers = @{"Accept"="application/json";
                  "Content-Type"="application/json"
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method POST -Headers $headers -Body $jsonBody    
     return $response
@@ -108,9 +108,9 @@ This example illustrates how to update a catalog with a new master image using P
     "VdaUpdateDelay" = "60"
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $catalogId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your catalog ID
   $response = UpdateCatalogImage $customerId $siteId $bearerToken $catalogId (ConvertTo-Json $body)
   
@@ -147,12 +147,12 @@ This example illustrates how to update a catalog with a new master image using C
       string catalogId,
       UpdateCatalogTemplateImageModel model)
   {
-      var requestUri = string.Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/{2}/updateimage", customerId, siteId, catalogId);
+      var requestUri = string.Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/{2}/updateImage", customerId, siteId, catalogId);
       using (var client = new HttpClient())
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var jsonBody = JsonConvert.SerializeObject(model, new JsonSerializerSettings
           {

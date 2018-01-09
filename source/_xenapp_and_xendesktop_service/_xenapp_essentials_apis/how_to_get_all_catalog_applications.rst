@@ -31,7 +31,7 @@ Response
   HTTP/1.1 200 OK
   Content-Length: 6676
   Content-Type: application/json; charset=utf-8
-  Date: "Tue, 26 Sep 2017 19:20:13 GMT"
+  Date: "Tue, 26 September 2017 19:20:13 GMT"
 
   {
     "Applications": [
@@ -79,10 +79,10 @@ Compressedb64Icon    | The compressed application icon in Base64 format. This is
 CommandLineParams    | The command line parameters for the app at startup.
 ==================== ======================================================================
 
-Powershell Example
+PowerShell Example
 ==================
 
-This example illustrates how to get the details of all applications published for a catalog in a customer’s account using Powershell.
+This example illustrates how to get the details of all applications published for a catalog in a customer’s account using PowerShell.
 
 .. code-block:: powershell
 
@@ -99,16 +99,16 @@ This example illustrates how to get the details of all applications published fo
     )
     $requestUri = [string]::Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/{2}/apps", $customerId, $siteId, $catalogId)
     $headers = @{"Accept"="application/json";
-                 "Authorization"="CWSAuth bearer=$bearerToken"}
+                 "Authorization"="CwsAuth bearer=$bearerToken"}
 
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
   
-  $customerId = "exampleCust" #Replace with your customerId
+  $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $catalogId = "8d352ba7-1917-41c3-95e5-50f436be8968" #Replace with your catalog ID
-  $bearerToken = "ey.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
+  $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = GetCatalogApplications $customerId $siteId $catalogId $bearerToken
   
 C# Example
@@ -129,7 +129,7 @@ This example illustrates how to get the details of all applications published fo
       {
           client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
           client.DefaultRequestHeaders.Authorization =
-                     new AuthenticationHeaderValue("CWSAuth", "Bearer=" + bearerToken);
+                     new AuthenticationHeaderValue("CwsAuth", "Bearer=" + bearerToken);
 
           var response = await client.GetAsync(requestUri);
 
