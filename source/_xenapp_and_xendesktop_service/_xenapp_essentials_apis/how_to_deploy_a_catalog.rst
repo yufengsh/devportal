@@ -113,7 +113,7 @@ AzureSubscriptionId    | [Required] The Azure subscription ID to be used by the 
                        | The connectors and VDAs will be hosted in this subscription. 
 AzureResourceGroup     | [Required] The Azure Resource group where the VNET resides.
 AzureVNet              | [Required] The Azure VNET to be used for this catalog. Ensure that
-                       | this VNET has connectivity to your domain and to the internet.
+                       | this VNET has connectivity to your domain and to the Internet.
 AzureSubnet            | [Required] The Azure subnet to be used for this catalog.
 =====================  ==========================================================================
 
@@ -127,7 +127,7 @@ DomainName             | [Required] The fully qualified domain name to be used b
 DomainOu               | [Optional] The Active Directory OU. The VDA machine accounts will be
                        | created in this OU.
 ServiceAccountName     | [Required] The domain service account name in UPN format. Ensure that
-                       | this account has premissions to join machines to the domain.
+                       | this account has permissions to join machines to the domain.
 =====================  ==========================================================================
 
 Step 4: Connect to a resource location (AddCatalogResourceLocation)
@@ -172,7 +172,7 @@ UseAzureHUB           | [Optional] Defaults to false. True if you want to use ex
 MaxUsersPerVM         | [Required] The max number of user sessions on each VDA machine.
 InstanceTypeId        | [Optional] Internal use only. Do not set it.
 InstanceName          | [Required] Azure virtual machine size to provision for the VDA.
-                      | See `virtual machine size <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes>`_ for all avaliable azure VM sizes.
+                      | See `virtual machine size <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes>`_ for all available azure VM sizes.
 ====================  ===========================================================================
 
 Property: ScaleSettings
@@ -185,11 +185,11 @@ MinInstances            | [Required] The minimum number of VDA instances running
 MaxInstances            | [Required] The maximum number of VDA instances to provision for the catalog.
 PendingMaxInstances     | [Optional] Internal use only. Do not set it.
 Weekdays                | [Optional] Required only if setting a peak schedule. Set true for days you
-                        | want the peak schedule to be enabled. eg. {Monday: true, Tuesday: true, 
+                        | want the peak schedule to be enabled. Example {Monday: true, Tuesday: true, 
                         | Wednesday: true, Thursday: true, Friday: true, Saturday: false, Sunday: false}
 PeakStartTime           | [Optional] Required only if setting a peak schedule. The hour of the day
                         | when peak schedule begins. Any integer number between 0 and 23.
-PeakEndTime             | [Optional] Required only if setting a peak schedule. The houe of the day
+PeakEndTime             | [Optional] Required only if setting a peak schedule. The hour of the day
                         | when peak schedule ends. Any integer number between 0 and 23.
 PeakTimeZone            | [Optional] Required only if setting a peak schedule. The timezone name for 
                         | the peak schedule. See `timezone names <https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx>`_ for a list of valid time zones.
@@ -197,12 +197,12 @@ PeakTimeZoneId          | [Optional] Internal use only. Do not set it.
 PeakMinInstances        | [Optional] Required only if setting a peak schedule. The minimum number 
                         | of VDA instances running at peak times.
 BufferCapacity          | [Optional] Defaults to 10%. To ensure that new user sessions have a smooth 
-                        | logon experience, the capacity buffer enables extra sessions to be ready 
+                        | login experience, the capacity buffer enables extra sessions to be ready 
                         | for demand spikes, as a percentage of current session demand. For example,
                         | if there are 100 active sessions and the capacity buffer is 10%, Citrix 
                         | provides capacity for 110 sessions. A lower capacity buffer percentage 
                         | can result in a decreased cost, but could also result in some sessions 
-                        | having an extended logon time if several sessions start concurrently.
+                        | having an extended login time if several sessions start concurrently.
 ServiceAccount          | [Optional] Internal use only. Do not set it.
 ServiceAccountPassword  | [Optional] Internal use only. Do not set it.
 ======================  =============================================================================
