@@ -41,6 +41,7 @@ Response
         "Name": "Calculator",
         "ApplicationPath": "C:\\Windows\\system32\\calc.exe",
         "WorkingDirectory": "%windir%\\system32",
+        "Description": "Calculator application",
         "Compressedb64Icon": "iVBORw0KGgoAAA..."
       },
       {
@@ -48,6 +49,7 @@ Response
         "Id": "73352308-ea31-41dc-ab95-9fa524e67fed",
         "Name": "Command Prompt",
         "ApplicationPath": "C:\\Windows\\system32\\cmd.exe",
+        "Description": "Command prompt application",
         "Compressedb64Icon": "iVBORw0KGgoAAA..."
         "CommandLineParams": "start notepad"
       }
@@ -71,6 +73,7 @@ ApplicationPath      | The path of the application executable on the master imag
 WorkingDirectory     | By default, this path is the same as the path in the ApplicationPath
                      | field. To run the application from a different directory, add an 
                      | absolute path to this field.
+Description          | This is the description that shows in your user's workspace.
 Compressedb64Icon    | The compressed application icon in Base64 format. This is for
                      | displaying the icon in the UI.
 CommandLineParams    | The command line parameters for the app at startup.

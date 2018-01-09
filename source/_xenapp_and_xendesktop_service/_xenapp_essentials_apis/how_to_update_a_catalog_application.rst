@@ -29,6 +29,7 @@ Request
     "ApplicationPath": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
     "CommandLineParameters": "https://developer.cloud.com",
     "WorkingDirectory": "%ProgramFiles(x86)%\\Google",
+    "Description": "Browse the Internet",
     "Base64Icon": "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAAAQA..."
   }
   
@@ -58,6 +59,7 @@ CommandLineParameters   | [Optional] The new command line parameters for the app
 WorkingDirectory        | [Optional] By default, this path is the same as the path in the ApplicationPath
                         | field. To run the application from a different directory, add an 
                         | absolute path to this field.
+Description             | This is the description that shows in your user's workspace.
 Base64Icon              | [Optional] The new base64 icon for the application. If this property is not
                         | specified, the original value will remain intact.
 ======================= ===================================================================================
@@ -103,6 +105,7 @@ This example illustrates how to update the details of an existing application fo
     "ApplicationPath" = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
     "CommandLineParameters" = "https://developer.cloud.com";
     "WorkingDirectory" = "%ProgramFiles(x86)%\Google";
+    "Description"= "Browse the IDnternet";
     "Base64Icon"= "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAA..."
   }
   
@@ -139,6 +142,12 @@ This example illustrates how to update the details of an existing application fo
     /// </summary>
     public string WorkingDirectory { get; set; }
 
+    /// <summary>
+    /// This is the description that shows in your user's workspace.
+    /// </summary>
+    [StringLength(512)]
+    public string Description { get; set; }
+		
     /// <summary>
     /// Command line paramters to pass to the app when launching
     /// </summary>
