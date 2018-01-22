@@ -29,6 +29,7 @@ Request
     "ApplicationPath": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
     "CommandLineParameters": "https://developer.cloud.com",
     "WorkingDirectory": "%ProgramFiles(x86)%\\Google",
+    "Description": "Browse the Internet",
     "Base64Icon": "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAAAQA..."
   }
   
@@ -58,6 +59,7 @@ CommandLineParameters   | [Optional] The new command line parameters for the app
 WorkingDirectory        | [Optional] By default, this path is the same as the path in the ApplicationPath
                         | field. To run the application from a different directory, add an 
                         | absolute path to this field.
+Description             | This is the description that shows in your user's workspace.
 Base64Icon              | [Optional] The new base64 icon for the application. If this property is not
                         | specified, the original value will remain intact.
 ======================= ===================================================================================
@@ -103,6 +105,7 @@ This example illustrates how to update the details of an existing application fo
     "ApplicationPath" = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
     "CommandLineParameters" = "https://developer.cloud.com";
     "WorkingDirectory" = "%ProgramFiles(x86)%\Google";
+    "Description"= "Browse the Internet";
     "Base64Icon"= "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAA..."
   }
   
@@ -110,7 +113,7 @@ This example illustrates how to update the details of an existing application fo
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $catalogId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your catalog ID
-  $appId = "f17bbe18-83a9-461c-a890-9c424596f0f3" #Replace with your app ID
+  $appId = "f17bbe18-83a9-461c-a890-9c424596f0f3" #Replace with your application ID
   $response = UpdateCatalogApplication $customerId $siteId $bearerToken $catalogId $appId (ConvertTo-Json $body)
   
 C# Example
@@ -123,7 +126,7 @@ This example illustrates how to update the details of an existing application fo
   public class UpdateApplicationConfigurationModel
   {
     /// <summary>
-    /// Display name of app
+    /// Display name of application
     /// </summary>
     [Required]
     public string Name { get; set; }
@@ -135,17 +138,23 @@ This example illustrates how to update the details of an existing application fo
     public string ApplicationPath { get; set; }
 
     /// <summary>
-    /// Working directory of the app at launch
+    /// Working directory of the application at launch
     /// </summary>
     public string WorkingDirectory { get; set; }
 
     /// <summary>
-    /// Command line parameters to pass to the app when launching
+    /// This is the description that shows in your user's workspace.
+    /// </summary>
+    [StringLength(512)]
+    public string Description { get; set; }
+		
+    /// <summary>
+    /// Command line parameters to pass to the application when launching
     /// </summary>
     public string CommandLineParams { get; set; }
 
     /// <summary>
-    /// The raw app icon represented as a base64 string
+    /// The raw application icon represented as a base64 string
     /// </summary>
     public string Base64Icon { get; set; }
   }

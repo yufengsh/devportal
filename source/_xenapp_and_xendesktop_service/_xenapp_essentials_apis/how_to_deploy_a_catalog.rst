@@ -65,7 +65,8 @@ Request
         "PeakStartTime": 9,
         "PeakEndTime": 17,
         "PeakTimeZone": "Eastern Standard Time",
-        "PeakMinInstances": 2
+        "PeakMinInstances": 2,
+        "BufferCapacity": 15
       },
       "SessionTimeout": 15,
       "IsActive": true
@@ -112,7 +113,7 @@ AzureSubscriptionId    | [Required] The Azure subscription ID to be used by the 
                        | The connectors and VDAs will be hosted in this subscription. 
 AzureResourceGroup     | [Required] The Azure Resource group where the VNET resides.
 AzureVNet              | [Required] The Azure VNET to be used for this catalog. Ensure that
-                       | this VNET has connectivity to your domain and to the internet.
+                       | this VNET has connectivity to your domain and to the Internet.
 AzureSubnet            | [Required] The Azure subnet to be used for this catalog.
 =====================  ==========================================================================
 
@@ -176,25 +177,35 @@ InstanceName          | [Required] Azure virtual machine size to provision for t
 
 Property: ScaleSettings
 
-==================  =============================================================================
-Property Name       | Description
-==================  =============================================================================
-MaxUsers            | [Optional] Internal use only. Do not set it.
-MinInstances        | [Required] The minimum number of VDA instances running at all times.
-MaxInstances        | [Required] The maximum number of VDA instances to provision for the catalog.
-Weekdays            | [Optional] Required only if setting a peak schedule. Set true for days you
-                    | want the peak schedule to be enabled. e.g. {Monday: true, Tuesday: true, 
-                    | Wednesday: true, Thursday: true, Friday: true, Saturday: false, Sunday: false}
-PeakStartTime       | [Optional] Required only if setting a peak schedule. The hour of the day
-                    | when peak schedule begins. Any integer number between 0 and 23.
-PeakEndTime         | [Optional] Required only if setting a peak schedule. The hour of the day
-                    | when peak schedule ends. Any integer number between 0 and 23.
-PeakTimeZone        | [Optional] Required only if setting a peak schedule. The timezone name for 
-                    | the peak schedule. See `timezone names <https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx>`_ for a list of valid time zones.
-PeakTimeZoneId      | [Optional] Internal use only. Do not set it.
-PeakMinInstances    | [Optional] Required only if setting a peak schedule. The minimum number 
-                    | of VDA instances running at peak times.
-==================  =============================================================================
+======================  =============================================================================
+Property Name           | Description
+======================  =============================================================================
+MaxUsers                | [Optional] Internal use only. Do not set it.
+MinInstances            | [Required] The minimum number of VDA instances running at all times.
+MaxInstances            | [Required] The maximum number of VDA instances to provision for the catalog.
+PendingMaxInstances     | [Optional] Internal use only. Do not set it.
+Weekdays                | [Optional] Required only if setting a peak schedule. Set true for days you
+                        | want the peak schedule to be enabled. Example {Monday: true, Tuesday: true, 
+                        | Wednesday: true, Thursday: true, Friday: true, Saturday: false, Sunday: false}
+PeakStartTime           | [Optional] Required only if setting a peak schedule. The hour of the day
+                        | when peak schedule begins. Any integer number between 0 and 23.
+PeakEndTime             | [Optional] Required only if setting a peak schedule. The hour of the day
+                        | when peak schedule ends. Any integer number between 0 and 23.
+PeakTimeZone            | [Optional] Required only if setting a peak schedule. The timezone name for 
+                        | the peak schedule. See `timezone names <https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx>`_ for a list of valid time zones.
+PeakTimeZoneId          | [Optional] Internal use only. Do not set it.
+PeakMinInstances        | [Optional] Required only if setting a peak schedule. The minimum number 
+                        | of VDA instances running at peak times.
+BufferCapacity          | [Optional] Defaults to 10%. To ensure that new user sessions have a smooth 
+                        | login experience, the capacity buffer enables extra sessions to be ready 
+                        | for demand spikes, as a percentage of current session demand. For example,
+                        | if there are 100 active sessions and the capacity buffer is 10%, Citrix 
+                        | provides capacity for 110 sessions. A lower capacity buffer percentage 
+                        | can result in a decreased cost, but could also result in some sessions 
+                        | having an extended login time if several sessions start concurrently.
+ServiceAccount          | [Optional] Internal use only. Do not set it.
+ServiceAccountPassword  | [Optional] Internal use only. Do not set it.
+======================  =============================================================================
 
 Property: Others
 
@@ -290,7 +301,8 @@ This example illustrates how to deploy a catalog to a customer's account using P
         "PeakStartTime" = "9";
         "PeakEndTime" = "17";
         "PeakTimeZone" = "Eastern Standard Time";
-        "PeakMinInstances" = "2"
+        "PeakMinInstances" = "2";
+        "BufferCapacity" = "15"
       }
       "SessionTimeout" = "15";
     }
@@ -494,6 +506,11 @@ This example illustrates how to deploy a catalog to a customer's account using C
       /// Minimum number of instances that should be running during peak hours
       /// </summary>
       public int PeakMinInstances { get; set; }
+
+      /// <summary>
+      /// Percentage of buffer capacity
+      /// </summary>
+      public int? BufferCapacity { get; set; }
   }
 
   public class DeploySecretsModel
