@@ -7,7 +7,6 @@ XenApp and XenDesktop Service
    :caption: Table of Contents
 
    _xenapp_essentials_apis/catalog_service_apis
-   
 
 Comments
 ========
