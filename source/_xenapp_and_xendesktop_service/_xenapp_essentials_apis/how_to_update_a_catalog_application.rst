@@ -5,7 +5,7 @@ This *REST API* updates the details of an existing application for a catalog.
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * If you do not have the ``catalogId``, see `how to get details of all the catalogs <how_to_get_details_of_all_the_catalogs.html>`_ to get the details of all your catalogs.
 * If you do not have the AppId of the application to update, see `how to get all catalog applications <how_to_get_all_catalog_applications.html>`_ to get the details of all your catalog applications.
 * Use the API listed below to update application details from a catalog.
@@ -23,15 +23,15 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
-  { 
+
+  {
     "Name": "Google Chrome",
     "ApplicationPath": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
     "CommandLineParameters": "https://developer.cloud.com",
     "WorkingDirectory": "%ProgramFiles(x86)%\\Google",
     "Base64Icon": "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAAAQA..."
   }
-  
+
 Response
 ~~~~~~~~
 ::
@@ -40,7 +40,7 @@ Response
   Content-Length: 6
   Content-Type: application/json; charset=utf-8
   Date: "Fri, 06 Oct 2017 14:26:08 GMT"
-  
+
   "True"
 
 Interpreting the request
@@ -53,10 +53,10 @@ Name                    | [Required] The new name of the application. Set this t
                         | you do not wish to modify it.
 ApplicationPath         | [Required] The new full path of the application executable on the master image.
                         | Set this to the original name if you do not wish to modify it.
-CommandLineParameters   | [Optional] The new command line parameters for the app at startup. If this 
+CommandLineParameters   | [Optional] The new command line parameters for the app at startup. If this
                         | property is not specified, the original value will remain intact.
 WorkingDirectory        | [Optional] By default, this path is the same as the path in the ApplicationPath
-                        | field. To run the application from a different directory, add an 
+                        | field. To run the application from a different directory, add an
                         | absolute path to this field.
 Base64Icon              | [Optional] The new base64 icon for the application. If this property is not
                         | specified, the original value will remain intact.
@@ -94,7 +94,7 @@ This example illustrates how to update the details of an existing application fo
                  "Content-Type"="application/json"
                  "Authorization"="CwsAuth bearer=$bearerToken"}
 
-    $response = Invoke-RestMethod -Uri $requestUri -Method PUT -Headers $headers -Body $jsonBody    
+    $response = Invoke-RestMethod -Uri $requestUri -Method PUT -Headers $headers -Body $jsonBody
     return $response
   }
 
@@ -105,19 +105,19 @@ This example illustrates how to update the details of an existing application fo
     "WorkingDirectory" = "%ProgramFiles(x86)%\Google";
     "Base64Icon"= "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAA..."
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $catalogId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your catalog ID
   $appId = "f17bbe18-83a9-461c-a890-9c424596f0f3" #Replace with your app ID
   $response = UpdateCatalogApplication $customerId $siteId $bearerToken $catalogId $appId (ConvertTo-Json $body)
-  
+
 C# Example
 ==========
 
 This example illustrates how to update the details of an existing application for a catalog using C#.
-  
+
 .. code-block:: csharp
 
   public class UpdateApplicationConfigurationModel

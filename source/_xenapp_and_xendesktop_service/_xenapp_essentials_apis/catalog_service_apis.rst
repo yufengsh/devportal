@@ -11,7 +11,6 @@ The complete set of available APIs can be viewed and tried out at `Catalog Servi
 .. toctree::
    :maxdepth: 2
    
-   prerequisites
    how_to_get_a_site_id
    how_to_add_a_master_image
    how_to_get_a_master_image
@@ -26,7 +25,7 @@ The complete set of available APIs can be viewed and tried out at `Catalog Servi
    how_to_update_a_catalog_application
    how_to_unpublish_catalog_applications
    how_to_extract_an_app_icon
-   
+
 Comments
 ========
 

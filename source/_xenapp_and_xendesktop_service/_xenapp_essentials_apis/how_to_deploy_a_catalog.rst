@@ -6,7 +6,7 @@ This *REST API* deploys a new catalog in a customer's account.
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * Ensure an Azure subscription is already linked to the customer's account via the XenApp Essentials UI.
 * Use the API listed below to deploy the catalog.
 * Monitor the deployment status of your catalog using steps listed in `how to get catalog information <how_to_get_catalog_information.html>`_.
@@ -26,7 +26,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
   {
     "AddCatalog": {
       "Name": "Finance Catalog"
@@ -85,7 +85,7 @@ Response
   Content-Length: 38
   Content-Type: application/json; charset=utf-8
   Date: Wed, 22 Nov 2017 15:05:23 GMT
-  
+
   "55cab14f-efb7-4bd6-bd9c-ebe991c9d165"
 
 Interpreting the request
@@ -98,8 +98,8 @@ Step 1: Pick a Name (AddCatalog)
 ==================================  =============================================================
 Property Name                       | Description
 ==================================  =============================================================
-Name                                | [Required] The name you want to give to your new catalog. 
-IsUserProvidedAzureResourceGroup    | [Optional] Internal use only. Do not set it. 
+Name                                | [Required] The name you want to give to your new catalog.
+IsUserProvidedAzureResourceGroup    | [Optional] Internal use only. Do not set it.
 IsDomainJoined                      | [Optional] Internal use only. Do not set it.
 ==================================  =============================================================
 
@@ -109,7 +109,7 @@ Step 2: Link your Azure Subscription (AddAzureConfiguration)
 Property Name          | Description
 =====================  ==========================================================================
 AzureSubscriptionId    | [Required] The Azure subscription ID to be used by the catalog.
-                       | The connectors and VDAs will be hosted in this subscription. 
+                       | The connectors and VDAs will be hosted in this subscription.
 AzureResourceGroup     | [Required] The Azure Resource group where the VNET resides.
 AzureVNet              | [Required] The Azure VNET to be used for this catalog. Ensure that
                        | this VNET has connectivity to your domain and to the internet.
@@ -136,11 +136,11 @@ Property Name                         | Description
 ====================================  ===========================================================
 IsAssignedExistingResourceLocation    | [Optional] Internal use only. Do not set it.
 Name                                  | [Required] The name you want to give to your resource
-                                      | location. Note: If the catalog is connected to an 
+                                      | location. Note: If the catalog is connected to an
                                       | existing Resource Location, this value will be ignored.
-AzureResourceGroup                    | [Required] The Azure Resource group to create the 
+AzureResourceGroup                    | [Required] The Azure Resource group to create the
                                       | connector machines.
-OrganizationalUnit                    | [Optional] The Active Directory OU. The connector 
+OrganizationalUnit                    | [Optional] The Active Directory OU. The connector
                                       | machines accounts will be created in this OU.
 ====================================  ===========================================================
 
@@ -149,10 +149,10 @@ Step 5: Choose master image (AddCatalogImage)
 =====================  ==========================================================================
 Property Name          | Description
 =====================  ==========================================================================
-TemplateId             | [Required] The ID of the master image you want to use for the catalog. 
+TemplateId             | [Required] The ID of the master image you want to use for the catalog.
                        | See `how to get all master images <how_to_get_all_master_images.html>`_ to get the ``imageId`` of all your posted images.
-CitrixPrepared         | [Optional] This should be set to false for a customer provided image.  
-                       | This should be set to true if you are creating the catalog with a  
+CitrixPrepared         | [Optional] This should be set to false for a customer provided image.
+                       | This should be set to true if you are creating the catalog with a
                        | Citrix Prepared image. Default value if false.
 =====================  ==========================================================================
 
@@ -163,10 +163,10 @@ Property: ComputeWorker
 ====================  ===========================================================================
 Property Name         | Description
 ====================  ===========================================================================
-UsePremiumStorage     | [Optional] Defaults to false. True if you want to use Azure Premium 
+UsePremiumStorage     | [Optional] Defaults to false. True if you want to use Azure Premium
                       | disks (SSD). False if you want to use Azure Standard disks (HDD).
-UseAzureHUB           | [Optional] Defaults to false. True if you want to use existing 
-                      | on-premises Windows Server licenses to provision the VMs in this 
+UseAzureHUB           | [Optional] Defaults to false. True if you want to use existing
+                      | on-premises Windows Server licenses to provision the VMs in this
                       | catalog at the base compute rate.
 MaxUsersPerVM         | [Required] The max number of user sessions on each VDA machine.
 InstanceTypeId        | [Optional] Internal use only. Do not set it.
@@ -183,16 +183,16 @@ MaxUsers            | [Optional] Internal use only. Do not set it.
 MinInstances        | [Required] The minimum number of VDA instances running at all times.
 MaxInstances        | [Required] The maximum number of VDA instances to provision for the catalog.
 Weekdays            | [Optional] Required only if setting a peak schedule. Set true for days you
-                    | want the peak schedule to be enabled. e.g. {Monday: true, Tuesday: true, 
+                    | want the peak schedule to be enabled. e.g. {Monday: true, Tuesday: true,
                     | Wednesday: true, Thursday: true, Friday: true, Saturday: false, Sunday: false}
 PeakStartTime       | [Optional] Required only if setting a peak schedule. The hour of the day
                     | when peak schedule begins. Any integer number between 0 and 23.
 PeakEndTime         | [Optional] Required only if setting a peak schedule. The hour of the day
                     | when peak schedule ends. Any integer number between 0 and 23.
-PeakTimeZone        | [Optional] Required only if setting a peak schedule. The timezone name for 
+PeakTimeZone        | [Optional] Required only if setting a peak schedule. The timezone name for
                     | the peak schedule. See `timezone names <https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx>`_ for a list of valid time zones.
 PeakTimeZoneId      | [Optional] Internal use only. Do not set it.
-PeakMinInstances    | [Optional] Required only if setting a peak schedule. The minimum number 
+PeakMinInstances    | [Optional] Required only if setting a peak schedule. The minimum number
                     | of VDA instances running at peak times.
 ==================  =============================================================================
 
@@ -201,8 +201,8 @@ Property: Others
 =================  ==============================================================================
 Property Name      | Description
 =================  ==============================================================================
-SessionTimeout     | [Required] Timeout in minutes after which the subscriber sessions end 
-                   | automatically if the session remains idle or is disconnected.                   
+SessionTimeout     | [Required] Timeout in minutes after which the subscriber sessions end
+                   | automatically if the session remains idle or is disconnected.
 IsActive           | [Optional] Internal use only. Do not set it.
 =================  ==============================================================================
 
@@ -211,10 +211,10 @@ Step 7: Start Deployment (DeploySecrets)
 =========================  ======================================================================
 Property Name              | Description
 =========================  ======================================================================
-ClientId                   | [Required] The client Id to authenticate to Citrix Cloud. 
+ClientId                   | [Required] The client Id to authenticate to Citrix Cloud.
                            | See `getting started <../../create_api_client.html>`_ section for
                            | more details about creating an API ``ClientId``.
-ClientSecret               | [Required] The client secret to authenticate to Citrix Cloud. 
+ClientSecret               | [Required] The client secret to authenticate to Citrix Cloud.
                            | See `getting started <../../create_api_client.html>`_ section for
                            | more details about creating an API ``ClientSecret``.
 ServiceAccountPassword     | [Required] The domain service account password.
@@ -262,7 +262,7 @@ This example illustrates how to deploy a catalog to a customer's account using P
       "AzureVNet" = "FinanceVnet";
       "AzureSubnet" = "FinanceSubnet"
     }
-    "AddCatalogDomain" = @{    
+    "AddCatalogDomain" = @{
       "DomainName" = "customer.local";
       "DomainOu" = "";
       "ServiceAccountName" = "admin1"
@@ -285,7 +285,7 @@ This example illustrates how to deploy a catalog to a customer's account using P
       }
       "ScaleSettings" = @{
         "MinInstances" = "1";
-        "MaxInstances" = "2";      
+        "MaxInstances" = "2";
         "Weekdays" = @{"Monday" = $true; "Tuesday" = $true; "Wednesday" = $true; "Thursday" = $true; "Friday" = $true; "Saturday" = $false; "Sunday" = $false};
         "PeakStartTime" = "9";
         "PeakEndTime" = "17";
@@ -300,7 +300,7 @@ This example illustrates how to deploy a catalog to a customer's account using P
       "ServiceAccountPassword" = "..."
     }
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
@@ -317,7 +317,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
   {
       /// <summary>
       /// Name of the catalog
-      /// </summary>                    
+      /// </summary>
       [StringLength(38, MinimumLength = 2)]
       [Required]
       public string Name { get; set; }
@@ -334,21 +334,21 @@ This example illustrates how to deploy a catalog to a customer's account using C
       /// <summary>
       /// Name of the resource group where all objects are going to be located in
       /// </summary>
-      [Required]            
+      [Required]
       [StringLength(64, MinimumLength = 1)]
       public string AzureResourceGroup { get; set; }
 
       /// <summary>
       /// Name of the VNET all machines will be connected to
       /// </summary>
-      [Required]            
+      [Required]
       [StringLength(64, MinimumLength = 2)]
       public string AzureVNet { get; set; }
 
       /// <summary>
       /// Address range of the machines in the catalog
       /// </summary>
-      [Required]            
+      [Required]
       [StringLength(80, MinimumLength = 2)]
       public string AzureSubnet { get; set; }
   }
@@ -358,7 +358,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       /// <summary>
       /// Domain the VMs will join
       /// </summary>
-      [Required]            
+      [Required]
       [StringLength(63, MinimumLength = 1)]
       public string DomainName { get; set; }
 
@@ -370,7 +370,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       /// <summary>
       /// Name of the service account that will be used to join the domain
       /// </summary>
-      [Required]            
+      [Required]
       [StringLength(104, MinimumLength = 1)]
       public string ServiceAccountName { get; set; }
   }
@@ -379,14 +379,14 @@ This example illustrates how to deploy a catalog to a customer's account using C
   {
       /// <summary>
       /// The desired name of the resource location that will be created for the catalog
-      /// </summary>            
+      /// </summary>
       [StringLength(64, MinimumLength = 1)]
       [Required]
       public string Name { get; set; }
 
       /// <summary>
       /// Name of the resource location where to provision the connector VDAs
-      /// </summary>            
+      /// </summary>
       [StringLength(64, MinimumLength = 1)]
       [Required]
       public string AzureResourceGroup { get; set; }
@@ -454,12 +454,12 @@ This example illustrates how to deploy a catalog to a customer's account using C
 
       /// <summary>
       /// Type of VM to create for VDA machines
-      /// </summary>            
+      /// </summary>
       public string InstanceName { get; set; }
   }
 
   public class CatalogScaleSettingsModel
-  {            
+  {
       /// <summary>
       /// Minimum number of active VMs for the catalog
       /// </summary>
@@ -489,7 +489,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       /// Display of the peak usage timezone
       /// </summary>
       public string PeakTimeZone { get; set; }
-      
+
       /// <summary>
       /// Minimum number of instances that should be running during peak hours
       /// </summary>
@@ -511,8 +511,8 @@ This example illustrates how to deploy a catalog to a customer's account using C
       public string ClientSecret { get; set; }
 
       /// <summary>
-      /// Service account password for required in domain joining. This will be stored in a azure vault. 
-      /// </summary>        
+      /// Service account password for required in domain joining. This will be stored in a azure vault.
+      /// </summary>
       public string ServiceAccountPassword { get; set; }
   }
 
@@ -553,7 +553,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       /// </summary>
       public DeploySecretsModel DeploySecrets { get; set; }
   }
-  
+
 .. code-block:: csharp
 
   public static async Task<string> DeployCatalog(
@@ -561,7 +561,7 @@ This example illustrates how to deploy a catalog to a customer's account using C
       string siteId,
       string bearerToken,
       CatalogConfigDeployModel model)
-  {   
+  {
       var requestUri = string.Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/deploy", customerId, siteId);
       using (var client = new HttpClient())
       {

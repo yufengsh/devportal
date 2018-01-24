@@ -1,13 +1,15 @@
-========================================
-Delivery Groups REST APIs - Tech Preview
-========================================
+===================================
+Delivery Groups APIs - Tech Preview
+===================================
+The Delivery Groups APIs provide a set of REST APIs that can be used to automate the management of Delivery Groups.
+The complete set of available APIs can be viewed and tried out at Delivery Groups APIs.
 
-Steps
-=====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``bearer token`` and ``customerId``.
-* Using following "API List" for delivery groups.
+Using this documentation
+========================
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``bearer token`` and ``customerId``.
+* Use the following Delivery Group APIs.
 
-API List
+API list
 ========
 * GET /v1/deliverygroups
 * GET /v1/deliverygroups/{id}/applications
@@ -21,9 +23,9 @@ API List
 * GET /v1/deliverygroups/{id}/scopes
 
 Get the API detail information from:
-`https://{customerid}.xendesktop.net/citrix/orchestration/api/swagger/ui/index#/`
+`<https://{customerid}.xendesktop.net/citrix/orchestration/api/swagger/ui/index#/>`
 
-REST Example
+REST example
 ============
 
 This example illustrates how to get delivery groups using REST API.
@@ -92,10 +94,10 @@ Interpreting the response
 Property Name            | Description
 ======================   ==========================================================================
 Id                       | Id of the Delivery Group.
-Uid                      | This should only be used in conjunction with the PowerShell SDK.
-                         | Uid of the Delivery Group.
-Uuid                     | This should only be used in conjunction with the PowerShell SDK.
-                         | UUID of the Delivery Group.
+Uid                      | Uid of the Delivery Group.
+                         | This should only be used in conjunction with the PowerShell SDK.
+Uuid                     | UUID of the Delivery Group.
+                         | This should only be used in conjunction with the PowerShell SDK.
 Name                     | Name of the Delivery Group.
 InMaintenanceMode        | Specifies whether the machines in the Delivery Group are in
                          | maintenance mode or not.

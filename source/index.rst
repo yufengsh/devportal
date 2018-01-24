@@ -14,7 +14,6 @@ organized into sections based on the various services found within Citrix Cloud.
    getting_started
    global_apis
    _xenapp_and_xendesktop_service/xenapp_and_xendesktop_service
-   _xenapp_and_xendesktop_rest_api/xenapp_and_xendesktop_rest_api
 .. xendesktop
    xenmobile
    sharefile

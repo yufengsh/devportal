@@ -6,7 +6,7 @@ This *REST API* gets the details of a catalog that was created in customer's acc
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * If you do not have the ``catalogId``, see `how to get details of all the catalogs <how_to_get_details_of_all_the_catalogs.html>`_ to get the details of all your catalogs.
 * Use the API in this document to get catalog details.
 
@@ -23,7 +23,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
 Response
 ~~~~~~~~
 ::
@@ -32,7 +32,7 @@ Response
   Content-Length: 871
   Content-Type: application/json; charset=utf-8
   Date: "Thu, 03 Aug 2017 18:04:15 GMT"
-  
+
   {
     "StoreFrontUrl": "customer.cloud.com",
     "AzureSubscriptionId": "c38c7a5c...",
@@ -75,19 +75,19 @@ Interpreting the response
 ======================== ========================================================================
 Property Name            | Description
 ======================== ========================================================================
-StoreFrontUrl            | The Storefront or Workspace URL for the customer to access their 
+StoreFrontUrl            | The Storefront or Workspace URL for the customer to access their
                          | apps. This is only available for Active catalogs.
 AzureSubscriptionId      | The Azure subscription ID linked to the catalog.
-Id                       | The ID of the catalog. This is the ID to pass to any API that 
+Id                       | The ID of the catalog. This is the ID to pass to any API that
                          | accepts a catalogId.
 Name                     | The name of the catalog.
-State                    | The current state of the catalog. A state of ``Input Required`` or 
+State                    | The current state of the catalog. A state of ``Input Required`` or
                          | ``Active`` indicates that the catalog deployment is successful.
-SubState                 | The sub-state of the catalog. This gives more information about the 
+SubState                 | The sub-state of the catalog. This gives more information about the
                          | current state of the catalog if it is in ``Processing`` state.
 Warnings                 | Any warnings associated with the catalog.
-StatusMessage            | If the catalog is not in ``InputRequired`` or ``Active`` state, this 
-                         | property will provide a friendly message describing the current 
+StatusMessage            | If the catalog is not in ``InputRequired`` or ``Active`` state, this
+                         | property will provide a friendly message describing the current
                          | state of the catalog.
 SubscriptionName         | Name of the Azure subscription linked to the catalog.
 ResourceGroup            | Azure resource group of the catalog.
@@ -96,9 +96,9 @@ VNetName                 | The Azure VNET used for the catalog.
 Subnet                   | The Azure subnet used for the catalog.
 DomainName               | The name of the domain to which Cloud Connectors and VDAs are
                          | joined.
-DomainServiceAccount     | The service account name used to join the Cloud Connectors and  
+DomainServiceAccount     | The service account name used to join the Cloud Connectors and
                          | VDAs to the domain.
-ImageId                  | The ID of the master image tied to the catalog. 
+ImageId                  | The ID of the master image tied to the catalog.
                          | Use `how to get a master image <how_to_get_a_master_image.html>`_ to get the details of this image.
 TemplateImageName        | The friendly name of the master image.
 TaskCompletionPercentage | The current percentage completion of the catalog creation task.
@@ -130,18 +130,18 @@ This example illustrates how to get a details for a catalog that was created in 
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $catalogId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your catalog ID
   $response = GetCatalog $customerId $siteId $bearerToken $catalogId
-  
+
 C# Example
 ==========
 
 This example illustrates how to get a details for a catalog that was created in a customer’s account using C#.
-  
+
 .. code-block:: csharp
 
   public static async Task<string> GetCatalog(
@@ -149,7 +149,7 @@ This example illustrates how to get a details for a catalog that was created in 
       string siteId,
       string bearerToken,
       string catalogId)
-  {   
+  {
       var requestUri = string.Format("https://catalogs.apps.cloud.com/{0}/{1}/catalogs/{2}", customerId, siteId, catalogId);
       using (var client = new HttpClient())
       {

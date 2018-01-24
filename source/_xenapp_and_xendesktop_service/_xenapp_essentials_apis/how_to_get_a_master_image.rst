@@ -6,7 +6,7 @@ This *REST API* gets the details of a master image that was previously added to 
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * If you do not have the ``imageId``, see `how to get all master images <how_to_get_all_master_images.html>`_ to get the image id of all your posted images.
 * Use the API in this document to get the master image.
 
@@ -23,7 +23,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
 Response
 ~~~~~~~~
 ::
@@ -32,7 +32,7 @@ Response
   Content-Length: 1616
   Content-Type: application/json; charset=utf-8
   Date: Wed, 02 Aug 2017 20:35:07 GMT
-  
+
   {
     "Catalogs": [
       {
@@ -88,8 +88,8 @@ Applications         | The list of start menu applications on the master image.
                      |          publishing an application.
                      | *ApplicationPath* - The application path on the master image. Use this path
                      |                     when publishing an application.
-                     | *WorkingDirectory* - By default, this path is the same as the path in the 
-                     |                      ApplicationPath field. To run the application from a 
+                     | *WorkingDirectory* - By default, this path is the same as the path in the
+                     |                      ApplicationPath field. To run the application from a
                      |                      different directory, add an absolute path to this field.
                      | *Compressedb64Icon* - The compressed application icon in Base64 format. This
                      |                       icon is for display purpose only. Do not use this when
@@ -97,18 +97,18 @@ Applications         | The list of start menu applications on the master image.
                      | *CommandLineParams* - The command line parameters for the app at startup.
 Id                   | The ID of the master image.
 Name                 | The friendly name if the master image.
-State                | The current state of the master image. A state of ``Ready`` indicates that the 
+State                | The current state of the master image. A state of ``Ready`` indicates that the
                      | image is good and ready to be used by a catalog.
 SubState             | The current sub state of the master image. This gives more visibility into the
                      | current state of the image.
-Status               | If the image is not in ``Ready`` state, this will give a friendly message 
+Status               | If the image is not in ``Ready`` state, this will give a friendly message
                      | describing the current state of the image.
 TransactionId        | Provide this transactionId to Citrix Support if you need help with this image.
-CitrixPrepared       | Indicates if this is a Citrix provided image. This will be false for all 
+CitrixPrepared       | Indicates if this is a Citrix provided image. This will be false for all
                      | images added by the customer.
 IsDeprecated         | Indicates if this is a Citrix prepared deprecated image. This will be false
                      | for all images added by the customer.
-LinkedCatalogs       | The number of catalogs using this image. This will be 0 for an image that 
+LinkedCatalogs       | The number of catalogs using this image. This will be 0 for an image that
                      | has just been added and has never been used by a catalog.
 ==================   ================================================================================
 
@@ -137,7 +137,7 @@ This example illustrates how to get a master image that was added to a customer'
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
@@ -148,7 +148,7 @@ C# Example
 ==========
 
 This example illustrates how to get a master image that was added to a customer's account using C#.
-  
+
 .. code-block:: csharp
 
   public static async Task<string> GetMasterImage(
@@ -156,7 +156,7 @@ This example illustrates how to get a master image that was added to a customer'
       string siteId,
       string bearerToken,
       string imageId)
-  {   
+  {
       var requestUri = string.Format("https://catalogs.apps.cloud.com/{0}/{1}/images/{2}", customerId, siteId, imageId);
       using (var client = new HttpClient())
       {

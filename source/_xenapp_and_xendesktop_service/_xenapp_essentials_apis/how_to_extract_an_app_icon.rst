@@ -2,12 +2,12 @@
 How to extract an app icon
 ===========================
 
-This *REST API* extracts raw icon from a file containing icon data. The file can be an exe, ico, png, bmp or any other format containing icon data. 
+This *REST API* extracts raw icon from a file containing icon data. The file can be an exe, ico, png, bmp or any other format containing icon data.
 The base64 string returned by this API needs to be passed to the API when publishing a catalog application.
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * Use the API in this document to get the raw icon base64 string from a file containing icon data.
 
 REST Example
@@ -23,7 +23,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
   {
     "FileName": "string",
     "IconFileBytes": "string"
@@ -47,9 +47,9 @@ Response
   Content-Length: 63254
   Content-Type: application/json; charset=utf-8
   Date: "Tue, 26 September 2017 21:24:11 GMT"
-  
+
   "AAABAAcAAAAAAAEAIABnYQAAdgAAADAwAAABAAgAqA4AAN1hAAAwMAAAAQA..."
-  
+
 Interpreting the response
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -81,11 +81,11 @@ This example illustrates how to get icon data in base64 string format from a fil
     $response = Invoke-RestMethod -Uri $requestUri -Method POST -Headers $headers -Body $jsonBody
     return $response
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
-  
+
   $bytes = [System.IO.File]::ReadAllBytes("C:\temp\chrome.exe") #Replace with your file path
 
   $body = @{
@@ -94,12 +94,12 @@ This example illustrates how to get icon data in base64 string format from a fil
   }
 
   $response = ExtractIcon $CustomerId $siteId $bearerToken (ConvertTo-Json $body)
-  
+
 C# Example
 ==========
 
 This example illustrates how to get icon data in base64 string format from a file using C#.
-  
+
 .. code-block:: csharp
 
   public class ExtractIconModel
@@ -108,7 +108,7 @@ This example illustrates how to get icon data in base64 string format from a fil
       /// The name of the file that contains the image. This is only used for logging purpose. This can be set to any string.
       /// </summary>
       public string FileName { get; set; }
-      
+
       /// <summary>
       /// The bytes of the file that contains the icon to be extracted
       /// </summary>
@@ -120,7 +120,7 @@ This example illustrates how to get icon data in base64 string format from a fil
       string siteId,
       string bearerToken,
       ExtractIconModel model)
-  {   
+  {
       var requestUri = string.Format("https://catalogs.apps.cloud.com/{0}/{1}/icons", customerId, siteId);
       using (var client = new HttpClient())
       {
