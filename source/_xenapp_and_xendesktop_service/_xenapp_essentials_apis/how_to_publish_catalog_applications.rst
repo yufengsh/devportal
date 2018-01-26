@@ -32,13 +32,15 @@ Request
         "IsStartMenuDiscovered": true,
         "Name": "Acrobat Reader DC",
         "Path": "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe",
-        "WorkingDirectory": "%ProgramFiles(x86)%\\Adobe"
+        "WorkingDirectory": "%ProgramFiles(x86)%\\Adobe",
+        "Description": "Read pdf documents"
       },
       {
         "Id": "e8b97101-5484-40da-a863-7540f2efb4ad";
         "IsStartMenuDiscovered": true,
         "Name": "Notepad",
         "Path": "C:\\Windows\\System32\\notepad.exe",
+        "Description": "Notepad application",
         "CommandLineParameters": "C:\\Sample.txt"
       },
       {
@@ -68,6 +70,7 @@ Response
         "Name": "Acrobat Reader DC",
         "ApplicationPath": "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe",
         "WorkingDirectory": "%ProgramFiles(x86)%\\Adobe",
+        "Description": "Read pdf documents",
         "Compressedb64Icon": "iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR..."
       },
       {
@@ -75,6 +78,7 @@ Response
         "Id": "8bc13ade-b275-4f4b-97e9-98ccd3575b03",
         "Name": "Notepad",
         "ApplicationPath": "C:\\Windows\\System32\\notepad.exe",
+        "Description": "Notepad application",
         "Compressedb64Icon": "iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR...",
         "CommandLineParams": "C:\\Sample.txt"
       },
@@ -106,6 +110,7 @@ Name                    | The name of the application. See `how to get a master 
 Path                    | The full path of the application executable on the master image.
 WorkingDirectory        | By default, this path is the same as the path in the Path field. To run the
                         | application from a different directory, add an absolute path to this field.
+Description             | This is the description that shows in your user's workspace.
 CommandLineParameters   | [Optional] The command line parameters for the app at startup.
 Base64Icon              | [Optional] Leave this property empty when publishing a start menu application
                         | since we already have the icon. Set this to the raw application icon in base64
@@ -155,6 +160,7 @@ This example illustrates how to publish applications to a catalog in a customer'
         "IsStartMenuDiscovered" = true;
         "Name"= "Acrobat Reader DC";
         "Path"= "C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe";
+        "Description"= "Read pdf documents";
         "WorkingDirectory"= "%ProgramFiles(x86)%\Adobe"
       },
       @{
@@ -162,6 +168,7 @@ This example illustrates how to publish applications to a catalog in a customer'
         "IsStartMenuDiscovered" = true;
         "Name"= "Notepad";
         "Path"= "C:\Windows\system32\notepad.exe";
+        "Description"= "Notepad application";
         "CommandLineParameters" = "C:\Sample.txt"
       },
       @{

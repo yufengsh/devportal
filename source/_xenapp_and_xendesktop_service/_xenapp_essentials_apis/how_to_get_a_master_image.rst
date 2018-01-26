@@ -48,6 +48,7 @@ Response
         "Name": "Acrobat Reader DC",
         "ApplicationPath": "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe",
         "WorkingDirectory": "%ProgramFiles(x86)%\\Adobe",
+        "Description": "Read pdf documents",
         "Compressedb64Icon": "..."
         "CommandLineParams": "doc.pdf"
       }
@@ -91,6 +92,7 @@ Applications         | The list of start menu applications on the master image.
                      | *WorkingDirectory* - By default, this path is the same as the path in the
                      |                      ApplicationPath field. To run the application from a
                      |                      different directory, add an absolute path to this field.
+                     | *Description* - This is the description that shows in your user's workspace.
                      | *Compressedb64Icon* - The compressed application icon in Base64 format. This
                      |                       icon is for display purpose only. Do not use this when
                      |                       publishing an application.
