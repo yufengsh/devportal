@@ -34,7 +34,7 @@ Request
 ~~~~~~~
 ::
 
-  GET http://{customerid}.xendesktop.net/citrix/orchestration/api/v1/deliverygroups HTTP/1.1
+  GET https://{customerId}.xendesktop.net/citrix/orchestration/api/v1/deliverygroups HTTP/1.1
   Accept: application/json
   Content-Type: application/json
   Authorization: bearer <token-from-prerequisites>
@@ -133,7 +133,7 @@ AppDNAState              | Data contract for AppDNAState = ['Unknown', 'Unsuppor
                          | 'ProblemsDetected'].
 AppDisks                 | The Application Disks used by machines in the Delivery Group.
 CustomerId               | Identity of tenant associated with Delivery Group. Not applicable
-                         | (always blank) in non-multitenant sites.
+                         | (always blank) in non-MultiTenant sites.
 SiteId                   | Identity of site associated with Delivery Group.
 Description              | Description of the Delivery Group.
 Enabled                  | Specifies whether the Delivery Group is enabled or not; disabled
