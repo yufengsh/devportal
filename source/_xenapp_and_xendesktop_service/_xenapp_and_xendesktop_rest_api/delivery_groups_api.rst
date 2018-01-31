@@ -23,7 +23,7 @@ API list
 * GET /v1/deliverygroups/{id}/scopes
 
 Get the API detail information from:
-`<https://{customerid}.xendesktop.net/citrix/orchestration/api/swagger/ui/index#/>`
+`<https://{customerId}.xendesktop.net/citrix/orchestration/api/swagger/ui/index#/>`
 
 REST example
 ============
