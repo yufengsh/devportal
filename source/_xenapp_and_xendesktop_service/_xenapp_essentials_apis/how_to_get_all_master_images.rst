@@ -6,7 +6,7 @@ This *REST API* lists the details of all master images that were added to a cust
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * Use the API in this document to get all master images.
 
 REST Example
@@ -22,7 +22,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
 Response
 ~~~~~~~~
 ::
@@ -31,7 +31,7 @@ Response
   Content-Length: 2304
   Content-Type: application/json; charset=utf-8
   Date: Wed, 02 Aug 2017 20:35:07 GMT
-  
+
   {
     "Overviews": [
       {
@@ -90,18 +90,18 @@ Property Name        | Description
 ==================   ================================================================================
 Id                   | The ID of the master image.
 Name                 | The friendly name of the master image.
-State                | The current state of the master image. A state of ``Ready`` indicates that the 
+State                | The current state of the master image. A state of ``Ready`` indicates that the
                      | image is ready to be used by a catalog.
 SubState             | The current sub state of the master image. This gives more visibility into the
                      | current state of the image.
 Status               | The friendly message describing the current state of the image when the image
                      | has not yet transitioned to ``Ready`` state.
 TransactionId        | Provide this transactionId to Citrix Support if you need help with this image.
-CitrixPrepared       | Indicates if this is a Citrix prepared image or not. This will be false for 
+CitrixPrepared       | Indicates if this is a Citrix prepared image or not. This will be false for
                      | all images added by the customer.
-IsDeprecated         | Indicates if this is a Citrix prepared deprecated image or not. This will be 
+IsDeprecated         | Indicates if this is a Citrix prepared deprecated image or not. This will be
                      | false for all images added by the customer.
-LinkedCatalogs       | The number of catalogs using this image. This will be 0 for an image that 
+LinkedCatalogs       | The number of catalogs using this image. This will be 0 for an image that
                      | has just been added and has never been used by a catalog.
 ==================   ================================================================================
 
@@ -128,24 +128,24 @@ This example illustrates how to list all master images that were added to a cust
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = GetAllMasterImages $customerId $siteId $bearerToken
-  
+
 C# Example
 ==========
 
 This example illustrates how to list all master images that were added to a customer’s account using C#.
-  
+
 .. code-block:: csharp
 
   public static async Task<string> GetAllMasterImages(
       string customerId,
       string siteId,
       string bearerToken)
-  {   
+  {
       var requestUri = string.Format("https://catalogs.apps.cloud.com/{0}/{1}/images?includeCitrixPrepared=false&includeCustomerPrepared=true", customerId, siteId);
       using (var client = new HttpClient())
       {

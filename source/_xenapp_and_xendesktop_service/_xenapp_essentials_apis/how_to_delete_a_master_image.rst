@@ -6,7 +6,7 @@ This *REST API* deletes a master image from a customer's account.
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * If you do not have the ``imageId``, see `how to get all master images <how_to_get_all_master_images.html>`_ to get the image ID of all your master images available in your account.
 * Use the API in this document to delete the master image.
 
@@ -23,7 +23,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
 Response
 ~~~~~~~~
 ::
@@ -32,7 +32,7 @@ Response
   Content-Length: 6
   Content-Type: application/json; charset=utf-8
   Date: Fri, 04 Aug 2017 13:43:31 GMT
-  
+
   "True"
 
 Interpreting the request URL
@@ -72,13 +72,13 @@ This example illustrates how to delete a master image from a customer's account 
     $response = Invoke-RestMethod -Uri $requestUri -Method DELETE -Headers $headers
     return $response
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $imageId = "56f1cbf3-1cc6-40cd-9c82-c95633ba88bb" #Replace with your master image ID
   $response = DeleteMasterImage $customerId $siteId $bearerToken $imageId
-  
+
 C# Example
 ==========
 

@@ -6,7 +6,7 @@ This *REST API* gets the details of all the catalogs in a customer's account.
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * Use the API in this document to get details of all catalogs in an account.
 
 REST Example
@@ -22,7 +22,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
 Response
 ~~~~~~~~
 ::
@@ -69,7 +69,7 @@ Response
         "State": "Error",
         "SubState": "ErrorVdaDeployingCitrixServersFailed",
         "Warnings": [],
-        "StatusMessage": "Failed to deploy Citrix server VMs: The server was unable to process the request due to an internal error.  For more information about the error, either turn on IncludeExceptionDetailInFaults (either from ServiceBehaviorAttribute or from the <serviceDebug> configuration behavior) on the server in order to send the exception information back to the client, or turn on tracing as per the Microsoft .NET Framework SDK documentation and inspect the server trace logs.  See <a href=\"https://support.citrix.com/article/CTX224151\">CTX224151</a> for steps to troubleshoot common catalog creation failures. Contact Citrix support and provide the Transaction ID if further assistance is required.", 
+        "StatusMessage": "Failed to deploy Citrix server VMs: The server was unable to process the request due to an internal error.  For more information about the error, either turn on IncludeExceptionDetailInFaults (either from ServiceBehaviorAttribute or from the <serviceDebug> configuration behavior) on the server in order to send the exception information back to the client, or turn on tracing as per the Microsoft .NET Framework SDK documentation and inspect the server trace logs.  See <a href=\"https://support.citrix.com/article/CTX224151\">CTX224151</a> for steps to troubleshoot common catalog creation failures. Contact Citrix support and provide the Transaction ID if further assistance is required.",
         "TransactionId": "7d9b90ea-4bc5-4b0d-823c-11719ddafc02",
         "SubscriptionName": "Sales Azure Subscription",
         "ResourceGroup": "SalesRG",
@@ -100,18 +100,18 @@ The response is a JSON with a list of all your catalogs.
 ======================== ========================================================================
 Property Name            | Description
 ======================== ========================================================================
-StoreFrontUrl            | The Storefront or Workspace URL for the customer to access their 
+StoreFrontUrl            | The Storefront or Workspace URL for the customer to access their
                          | apps. This is only available for Active catalogs.
 AzureSubscriptionId      | The Azure subscription ID linked to the catalog.
-Id                       | The ID of the catalog. This is the ID to pass to any API that 
+Id                       | The ID of the catalog. This is the ID to pass to any API that
                          | accepts a catalogId.
 Name                     | The name of the catalog.
-State                    | The current state of the catalog. A state of ``Input Required`` or 
+State                    | The current state of the catalog. A state of ``Input Required`` or
                          | ``Active`` indicates that the catalog deployment is successful.
-SubState                 | The sub-state of the catalog. This gives more information about the 
+SubState                 | The sub-state of the catalog. This gives more information about the
                          | current state of the catalog if it is in ``Processing`` state.
 Warnings                 | Any warnings associated with the catalog.
-StatusMessage            | If the catalog is not in ``InputRequired`` or ``Active`` state, this 
+StatusMessage            | If the catalog is not in ``InputRequired`` or ``Active`` state, this
                          | property will provide a friendly message describing the current
                          | state of the catalog.
 SubscriptionName         | Name of the Azure subscription linked to the catalog.
@@ -121,9 +121,9 @@ VNetName                 | The Azure VNET used by the catalog.
 Subnet                   | The Azure subnet used by the catalog.
 DomainName               | The name of the domain to which Cloud Connectors and VDAs are
                          | joined.
-DomainServiceAccount     | The service account name used to join the Cloud Connectors and  
+DomainServiceAccount     | The service account name used to join the Cloud Connectors and
                          | VDAs to the domain.
-ImageId                  | The ID of the master image tied to the catalog. 
+ImageId                  | The ID of the master image tied to the catalog.
                          | Use `how to get a master image <how_to_get_a_master_image.html>`_ to get the details of this image.
 TemplateImageName        | The friendly name of the master image.
 TaskCompletionPercentage | The current percentage completion of the catalog creation task.
@@ -155,17 +155,17 @@ This example illustrates how to get the details of all catalogs that were create
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = GetAllCatalogs $customerId $siteId $bearerToken
-  
+
 C# Example
 ==========
 
 This example illustrates how to get the details of all catalogs that were created in a customer’s account using C#.
-  
+
 .. code-block:: csharp
 
   public static async Task<string> GetAllCatalogs(
