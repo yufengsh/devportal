@@ -6,7 +6,7 @@ This *REST API* gets the details of all the applications published for a catalog
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * If you do not have the ``catalogId``, see `how to get details of all the catalogs <how_to_get_details_of_all_the_catalogs.html>`_ to get the details of all your catalogs.
 * Use the API in this document to get details of all applications for a catalog.
 
@@ -23,7 +23,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
 Response
 ~~~~~~~~
 ::
@@ -64,14 +64,14 @@ The response is a JSON with a list of all your published applications for the ca
 ==================== ======================================================================
 Property Name        | Description
 ==================== ======================================================================
-State                | Publish state of the application. This is always set to ``Published``. 
-Id                   | The ID of the application. This is the ID to pass to any API that 
+State                | Publish state of the application. This is always set to ``Published``.
+Id                   | The ID of the application. This is the ID to pass to any API that
                      | accepts an appId.
-Name                 | The name of the application. This name matches the start menu 
+Name                 | The name of the application. This name matches the start menu
                      | discovered applications on a master image.
 ApplicationPath      | The path of the application executable on the master image.
 WorkingDirectory     | By default, this path is the same as the path in the ApplicationPath
-                     | field. To run the application from a different directory, add an 
+                     | field. To run the application from a different directory, add an
                      | absolute path to this field.
 Description          | This is the description that shows in your user's workspace.
 Compressedb64Icon    | The compressed application icon in Base64 format. This is for
@@ -104,18 +104,18 @@ This example illustrates how to get the details of all applications published fo
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $catalogId = "8d352ba7-1917-41c3-95e5-50f436be8968" #Replace with your catalog ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = GetCatalogApplications $customerId $siteId $catalogId $bearerToken
-  
+
 C# Example
 ==========
 
 This example illustrates how to get the details of all applications published for a catalog in a customer’s account using C#.
-  
+
 .. code-block:: csharp
 
   public static async Task<string> GetCatalogApplications(

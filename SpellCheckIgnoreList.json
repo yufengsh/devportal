@@ -64,5 +64,17 @@
   "Dismissible",
   "foreach",
   "Un",
-  "un"
+  "un",
+  "api",
+  "appdisks",
+  "appgroups",
+  "Apps",
+  "AppsOnly",
+  "deliverygroups",
+  "DesktopsAndApps",
+  "machinecatalogs",
+  "ui",
+  "Uid",
+  "Uuid",
+  "xendesktop"
 ]

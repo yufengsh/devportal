@@ -6,7 +6,7 @@ This *REST API* lists all the sites assigned to a customer. Currently the custom
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId`` and ``bearer token``.
 * Invoke the API in this document to get the sites.
 
 REST Example
@@ -22,7 +22,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
 Response
 ~~~~~~~~
 ::
@@ -31,7 +31,7 @@ Response
   Content-Length: 132
   Content-Type: application/json; charset=utf-8
   Date: Fri, 18 Aug 2017 14:52:44 GMT
-  
+
   {
     "Sites": [
       {
@@ -73,7 +73,7 @@ This example illustrates how to get a customer's site identifiers using PowerShe
     $response = Invoke-RestMethod -Uri $requestUri -Method GET -Headers $headers
     return $response
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
   $response = GetSites $customerId $bearerToken
@@ -82,13 +82,13 @@ C# Example
 ==========
 
 This example illustrates how to get a customer's site identifiers using C#.
-  
+
 .. code-block:: csharp
 
   public static async Task<string> GetSites(
       string customerId,
       string bearerToken)
-  {   
+  {
       var requestUri = string.Format("https://catalogs.apps.cloud.com/{0}/sites", customerId);
       using (var client = new HttpClient())
       {

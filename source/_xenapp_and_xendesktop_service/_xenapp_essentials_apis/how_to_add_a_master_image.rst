@@ -6,7 +6,7 @@ This *REST API* adds a new master image to a customer's account.
 
 Steps
 =====
-* Read the `prerequisites <prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
+* Read the `prerequisites <../prerequisites.html>`_ and ensure that you have the ``customerId``, ``siteId`` and ``bearer token``.
 * Use the API listed below to add a master image.
 * Check the verification status of the master image using the steps detailed in `how to get a master image <how_to_get_a_master_image.html>`_.
 * A state of ``Enumerating`` indicates that the image processing has begun. Keep monitoring until the status changes to either ``Ready`` or ``Failed``.
@@ -28,7 +28,7 @@ Request
   Accept: application/json
   Content-Type: application/json
   Authorization: CwsAuth bearer=<token-from-prerequisites>
-  
+
   {
     "Name": "Finance Image",
     "SubscriptionId": "c38c7a5c-..",
@@ -46,7 +46,7 @@ Response
   Content-Length: 38
   Content-Type: application/json; charset=utf-8
   Date: Wed, 02 Aug 2017 15:05:23 GMT
-  
+
   "55cab14f-efb7-4bd6-bd9c-ebe991c9d165"
 
 Interpreting the request
@@ -103,7 +103,7 @@ This example illustrates how to add a new master image to a customer's account u
     "Validate" = $true;
     "VhdUrl" = "https://xaensfa5edge1gu4o1.blob.core.windows.net/vhds/XAEnsfa5-Findisk0.vhd"
   }
-  
+
   $customerId = "customer1" #Replace with your customerId
   $siteId = "61603f15-cdf9-4c7f-99ff-91636601a795" #Replace with your site ID
   $bearerToken = "ey1.." #See Prerequisites for all API calls section for a sample of how to get your bearer token
@@ -152,7 +152,7 @@ This example illustrates how to add a new master image to a customer's account u
       /// </summary>
       public bool Validate { get; set; }
   }
-  
+
 .. code-block:: csharp
 
   public static async Task<string> AddMasterImage(
@@ -160,7 +160,7 @@ This example illustrates how to add a new master image to a customer's account u
       string siteId,
       string bearerToken,
       AddMasterImageModel model)
-  {   
+  {
       var requestUri = string.Format("https://catalogs.apps.cloud.com/{0}/{1}/images", customerId, siteId);
       using (var client = new HttpClient())
       {
