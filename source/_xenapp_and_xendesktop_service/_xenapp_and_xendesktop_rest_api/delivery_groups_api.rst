@@ -37,7 +37,7 @@ Request
   GET https://{customerId}.xendesktop.net/citrix/orchestration/api/v1/deliverygroups HTTP/1.1
   Accept: application/json
   Content-Type: application/json
-  Authorization: bearer <token-from-prerequisites>
+  Authorization: Bearer <token-from-prerequisites>
 
 Response
 ~~~~~~~~
