@@ -76,5 +76,15 @@
   "ui",
   "Uid",
   "Uuid",
-  "xendesktop"
+  "xendesktop",  
+  "singleuse",
+  "icafile",
+  "launchurl",
+  "wus",
+  "weurope",
+  "seasia",
+  "hostname",
+  "Username",
+  "Ica",
+  "Whitelist"
 ]

@@ -1,0 +1,7 @@
+1) `Create an API client <../create_api_client.html>`_.
+2) Read the `authenticate using the API client <../authenticate_api_client.html>`_
+   explanation of how to get Citrix Cloud bearer token.
+3) Use the obtained bearer token `as explained here <../call_api_bearer_token.html>`_
+   in the section below.
+4) You need the ``customer`` id to use as first part of the URL path. Getting the
+   value `is explained here <../customer_id.html>`_.
