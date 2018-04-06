@@ -1,0 +1,78 @@
+The following JSON object is a fully defined launch request. All fields except Address are optional and may be omitted if the default value is acceptable.
+
+.. code-block:: json
+
+  {    
+    "Address": "https://www.citrix.com",
+    "Name": "Citrix",
+    "Geo": "wus",
+    "Whitelist": "*:*",
+    "UserIdentity": {
+      "Username": "user@example.com",
+      "ClientIP": "198.51.100.1",
+    },    
+    "Policies": {
+      "CopyPaste": true,
+      "Printing": false,
+      "NonKiosk": false,
+      "SessionIdleTimeout": 15,
+      "SessionIdleTimeoutWarning": 5
+    }
+  }
+  
+LaunchModel
+~~~~~~~~~~~
+================= ================== ==============================================================
+Property Name     | Type             | Description
+================= ================== ==============================================================
+Address           | string           | [Required] Fully-qualified URL to launch within the session. 
+Name              | string           | Title of the page in the client browser.
+Geo               |                  | Geographical region to host the remote session.
+                  |                  |
+                  |                  |     "wus" (West US)
+                  | string           |     "weurope" (West Europe)
+                  |                  |     "seasia" (Southeast Asia)
+                  |                  |
+                  |                  | Default value is "wus".
+Whitelist         |                  | List of sites that the hosted browser is allowed to contact.
+                  |                  | Entries are in the format "hostname:port number", separated 
+                  | string           | by newlines, with asterisks as wild cards.
+                  |                  |
+                  |                  | Default value is "\*:\*", which allows all traffic.
+UserIdentity      | object           | Describes the user launching the session.
+Policies          | object           | Defines the features available within the session.
+================= ================== ==============================================================
+
+UserIdentity
+~~~~~~~~~~~~
+================= ================== ==============================================================
+Property Name     | Type             | Description
+================= ================== ==============================================================
+Username          | string           | Name of the user
+ClientIP          | string           | IP address of the user
+================= ================== ==============================================================
+
+Policies
+~~~~~~~~
+========================= ================== ======================================================
+Property Name             | Type             | Description
+========================= ================== ======================================================
+CopyPaste                 |                  | Enable clipboard operations between client and 
+                          | boolean          | session. 
+                          |                  |
+                          |                  | Disabled by default.
+Printing                  |                  | Enable printing of remote pages. 
+                          | boolean          |
+                          |                  | Disabled by default.
+NonKiosk                  |                  | Do not run the hosted browser in kiosk mode. 
+                          | boolean          |
+                          |                  | Disabled by default.
+SessionIdleTimeout        |                  | Number of minutes to allow the session to remain
+                          | integer          | idle before closing automatically.
+                          |                  |
+                          |                  | Default ten minutes.
+SessionIdleTimeoutWarning |                  | Number of minutes before an automatic log off to
+                          | integer          | display a warning dialog to the user.
+                          |                  |
+                          |                  | Default two minutes.
+========================= ================== ======================================================
