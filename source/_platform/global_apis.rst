@@ -6,7 +6,10 @@ Global APIs
    :maxdepth: 2
    :caption: Table of Contents
 
-   how_to_send_notifications
+   get_resource_locations
+   get_service_entitlement_status
+   create_webhook
+   send_notifications
 
 Comments
 ========

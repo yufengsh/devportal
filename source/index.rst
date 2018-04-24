@@ -12,13 +12,16 @@ organized into sections based on the various services found within Citrix Cloud.
    :caption: Table of Contents
 
    getting_started
-   global_apis
+   _platform/global_apis
    _xenapp_and_xendesktop_service/xenapp_and_xendesktop_service
    _secure_browser/secure_browser   
+   contributing
+   
 .. xendesktop
    xenmobile
    sharefile
    smarttools
+   
 
 *Stay tuned for more content*
 
