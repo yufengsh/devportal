@@ -79,6 +79,14 @@ When you are ready to release your new documentation onto the world, commit your
 
 Now open a pull request from your github fork, back to the CitrixCloudCommunity/devportal project.
 
+|figure_1|
+
+Once you create a pull request, developers working on Citrix Cloud will review your submission and work with you to get it approved and deployed into the official documentation site.
+
+
+.. |figure_1| image:: /_static/devportal_snapshot.png
+    :scale: 25%
+
 
 Comments
 ========
