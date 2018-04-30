@@ -31,7 +31,7 @@ Request
 ~~~~~~~
 ::
 
-  POST https://core.citrixworkspacesapi.net/acme/serviceStates HTTP/1.1
+  POST https://webhooks.citrixworkspacesapi.net/acme/subscriptions HTTP/1.1
   Accept: application/json
   Authorization: CwsAuth Bearer=<token-from-call-to-trust>
   Content-Type: application/json
