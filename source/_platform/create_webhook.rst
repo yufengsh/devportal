@@ -1,6 +1,6 @@
-===============================================
-Create a webhook to receive Citrix Cloud events
-===============================================
+================================================
+Create a web hook to receive Citrix Cloud events
+================================================
 
 Citrix Cloud raises events for various activities, including:
 
@@ -38,7 +38,7 @@ Request
 
   {
     "customerId": "acme",
-    "description": "my webhook",
+    "description": "my web hook",
     "url": "https://mycallback.myserver.com/myapi",
     "authHeaders": "Basic ...",
     "changeType": "*",
@@ -50,11 +50,11 @@ Request
 
     Replace ``url`` above with the URL of your service's REST endpoint.  This endpoint will be called with the HTTP ``POST`` method.
 
-Body parameters
-~~~~~~~~~~~~~~~
+Interpreting the request
+~~~~~~~~~~~~~~~~~~~~~~~~
 ``customerId`` must be the same customer ID used in the request URL, and must be a customer for which the bearer token is authorized.
 
-``description`` can be an arbitrary string, useful to locate specific webhooks later.
+``description`` can be an arbitrary string, useful to locate specific web hooks later.
 
 ``url`` is the URL of your service's REST endpoint.  This endpoint will be called with the HTTP ``POST`` method and must be internet-accessible.
 

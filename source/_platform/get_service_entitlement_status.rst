@@ -65,7 +65,7 @@ Response
       ]
   }
 
-Explanation of properties
+Interpreting the response
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``serviceName`` is the name of each product service within Citrix Cloud.
