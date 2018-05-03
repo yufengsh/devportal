@@ -52,8 +52,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Citrix Cloud'
-copyright = '2017, Citrix Systems Inc'
-author = 'Tom Kludy'
+copyright = '2018, Citrix Systems Inc'
+author = 'Citrix Cloud'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
