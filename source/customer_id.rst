@@ -4,7 +4,7 @@ Customer Id
 
 The Citrix Cloud API requires a ``customer`` id when calling REST APIs, as part of
 the URL. The parameter sometimes must be the special value ``root``.
-But sometimes you need the specific ``customer`` that you are targeting.
+But sometimes you need the specific ``customer`` that you are targeting
 
 To get the ``customer`` id, use the API Client tab on the Identity and Access
 Management page:
