@@ -1,6 +1,6 @@
-==============================
-XenApp and XenDesktop Service
-==============================
+==================================
+Virtual Apps and Desktops Service
+==================================
 
 .. toctree::
    :maxdepth: 2

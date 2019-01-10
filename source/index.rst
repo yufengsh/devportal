@@ -13,7 +13,7 @@ organized into sections based on the various services found within Citrix Cloud.
 
    getting_started
    _platform/global_apis
-   _xenapp_and_xendesktop_service/xenapp_and_xendesktop_service
+   _virtual_apps_and_desktops_service/virtual_apps_and_desktops_service
    _secure_browser/secure_browser   
    contributing
    
